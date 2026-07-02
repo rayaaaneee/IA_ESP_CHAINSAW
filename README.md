@@ -4,6 +4,25 @@ This program have to be runned into ESP32
 
 [There's code tools (Arduino, `.ino`)](https://github.com/Nixmus/Esp32)
 
+## HARDWARE REQUIREMENTS (IOT)
+
+### BREADBOARD
+
+> Note : The breadboard is used for prototyping and testing the circuit before finalizing the design.
+>> Anyone model of breadboard can be used, but a standard size breadboard is recommended for ease of use and compatibility with other components.
+
+### ESP32 (Microcontroller)
+
+> Name: ESP32-WROOM-32 Development Board
+
+### Microphone
+
+> Name: INMP441 Omnidirectional Microphone (I2S digital output interface)
+
+### LoRa Module (Optional/Context Dependent)
+
+> Precizion: For transmitting alerts across the forest environment without GPS infrastructure.
+
 ## PYTHON INSTALLATION PATHWAY
 
 Install Python 3.11.X and add it to your PATH environment variable.
