@@ -1,9 +1,7 @@
 #include <Arduino.h>
 
 // La plupart des ESP32 utilisent le GPIO 2 pour la LED intégrée
-#ifndef LED_BUILTIN
 #define LED_BUILTIN 2
-#endif
 
 void setup() {
   // Initialisation de la broche de la LED en sortie

@@ -14,3 +14,5 @@ venv\Scripts\python.exe -m pip install -r requirements.txt
 
 echo.
 echo Setup complete. You can now run 'invoke train' to start training the model.
+echo.
+echo Finalized initialization! Please run 'inv list' to see all available commands.

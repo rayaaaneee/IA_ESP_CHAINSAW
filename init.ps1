@@ -10,3 +10,5 @@ Write-Host "`nUpgrading pip and installing dependencies..."
 & .\venv\Scripts\python.exe -m pip install -r requirements.txt
 
 Write-Host "`nSetup complete.`nYou can now run 'invoke train' to start training the model."
+
+Write-Host "`nFinalized initialization! Please run 'inv list' to see all available commands."
