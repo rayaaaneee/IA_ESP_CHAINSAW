@@ -5,12 +5,12 @@
 			"path": "."
 		},
 		{
-			"name": "firmware",
-			"path": "./firmware"
-		},
-		{
 			"name": "AI (training)",
 			"path": "./training"
+		},
+		{
+			"name": "firmware",
+			"path": "./firmware"
 		}
 	],
 	"settings": {
@@ -18,8 +18,7 @@
 		"files.exclude": {
 			"**/.git*": true,
 			"data/info.md": false,
-            "data/chainsaw/": true,
-			"data/environment/": true,
+            "data/raw/": true,
 			".pio/": true,
 			"**/.vscode": true,
 			"*venv/": true,

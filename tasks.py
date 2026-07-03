@@ -71,3 +71,15 @@ def dependencies(c):
 @task(aliases=["i", "r", "reset", "reinstall"])
 def install(c):
     c.run(f'"{PIP}" install --upgrade -r requirements.txt')
+
+@task(aliases=["extract", "e", "ef"])
+def extract_features(c):
+    # Extract audio features from the dataset and save them to a compressed .npz file.
+    print("Extracting audio features to compressed .npz file...")
+    c.run(f'"{PYTHON}" training/extract_features.py')
+    
+@task(pre=[extract_features, train, convert], aliases=["fp", "pl", "pipeline"])
+def full_pipeline(c):
+    # Run the full pipeline: extract features, train the model, and convert to TFLite.
+    print("Running full pipeline: extract features, train model, convert to TFLite...")
+    pass

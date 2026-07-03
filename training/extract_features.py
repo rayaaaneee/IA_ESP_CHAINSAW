@@ -9,14 +9,13 @@ from typing import Iterable
 import librosa
 import numpy as np
 
-DEFAULT_DATA_ROOT = Path(__file__).resolve().parent / "data"
-LEGACY_DATASET_ROOT = Path(__file__).resolve().parent / "dataset"
-DATASET_ROOT = DEFAULT_DATA_ROOT if DEFAULT_DATA_ROOT.exists() else LEGACY_DATASET_ROOT
-DEFAULT_OUTPUT_PATH = Path(__file__).resolve().parent / "model" / "feature_dataset.npz"
-DEFAULT_MANIFEST_PATH = Path(__file__).resolve().parent / "model" / "feature_dataset_manifest.json"
+DATASET_ROOT = Path(__file__).resolve().parent / "data" / "raw"
+DEFAULT_OUTPUT_PATH = Path(__file__).resolve().parent / "data" / "processed" / "feature_dataset.npz"
+DEFAULT_MANIFEST_PATH = Path(__file__).resolve().parent / "data" /  "processed" / "feature_dataset_manifest.json"
 
-POSITIVE_TOKENS = ("chainsaw", "motosierra", "scie", "saw")
-NEGATIVE_TOKENS = ("environment", "environmental", "lluvia", "rain", "selva", "noise", "background", "ambiente")
+# Keywords for automatic label inference based on dataset structure
+POSITIVE_TOKENS = ("chainsaw", "motosierra")
+NEGATIVE_TOKENS = ("environment", "motocross", "lluvia", "rainforest")
 
 
 @dataclass(frozen=True)
@@ -38,13 +37,13 @@ def infer_label(audio_path: Path) -> int:
     if any(token in searchable for token in NEGATIVE_TOKENS):
         return 0
 
-    raise ValueError(f"Impossible d'inférer un label pour {audio_path}")
+    raise ValueError(f"Unable to infer label for {audio_path}")
 
 
 def load_audio(audio_path: Path, config: FeatureConfig) -> np.ndarray:
     signal, _ = librosa.load(audio_path, sr=config.sample_rate, mono=True)
     if signal.size == 0:
-        raise ValueError(f"Audio vide: {audio_path}")
+        raise ValueError(f"Empty audio file: {audio_path}")
 
     peak = np.max(np.abs(signal))
     if peak > 0:
@@ -139,7 +138,7 @@ def discover_audio_files(dataset_root: Path) -> list[Path]:
 def build_feature_dataset(dataset_root: Path, config: FeatureConfig) -> tuple[np.ndarray, np.ndarray, list[dict[str, object]]]:
     audio_files = discover_audio_files(dataset_root)
     if not audio_files:
-        raise FileNotFoundError(f"Aucun fichier WAV trouvé dans {dataset_root}")
+        raise FileNotFoundError(f"No WAV files found in {dataset_root}")
 
     features: list[np.ndarray] = []
     labels: list[int] = []
@@ -196,11 +195,10 @@ def main() -> None:
     x_data, y_data, manifest = build_feature_dataset(args.dataset, config)
     save_feature_dataset(args.output, args.manifest, x_data, y_data, config, manifest)
 
-    print(f"Features extraites: {x_data.shape[0]} échantillons, dimension {x_data.shape[1]}")
-    print(f"Cache sauvegardé dans {args.output}")
-    print(f"Manifest sauvegardé dans {args.manifest}")
+    print(f"Features extracted: {x_data.shape[0]} samples, dimension {x_data.shape[1]}")
+    print(f"Cache saved to {args.output}")
+    print(f"Manifest saved to {args.manifest}")
 
 
 if __name__ == "__main__":
     main()
-

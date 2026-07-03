@@ -1,0 +1,3670 @@
+{
+  "config": {
+    "sample_rate": 16000,
+    "window_seconds": 2.0,
+    "hop_seconds": 1.0,
+    "n_mfcc": 20,
+    "n_mels": 32,
+    "fft_length": 1024,
+    "hop_length": 256
+  },
+  "samples": 2715,
+  "feature_dim": 194,
+  "files": [
+    {
+      "file": "chainsaw\\motosierra_digital_001.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_002.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_003.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_004.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_005.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_006.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_007.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_008.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_009.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_010.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_011.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_012.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_013.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_014.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_015.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_016.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_017.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_018.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_019.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_020.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_021.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_022.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_023.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_024.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_025.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_026.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_027.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_028.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_029.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_030.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_031.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_032.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_033.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_034.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_035.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_036.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_037.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_038.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_039.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_040.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_041.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_042.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_043.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_044.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_045.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_046.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_047.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_048.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_049.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "chainsaw\\motosierra_digital_050.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_001.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_002.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_003.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_004.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_005.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_006.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_007.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_008.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_009.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_010.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_011.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_012.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_013.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_014.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_015.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_016.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_017.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_018.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_019.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_020.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_021.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_022.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_023.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_024.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_025.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_026.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_027.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_028.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_029.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_030.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_031.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_032.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_033.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_034.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_035.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_036.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_037.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_038.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_039.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_040.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_041.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_042.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_043.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_044.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_045.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_046.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_047.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_048.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_049.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_050.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_051.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_052.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_053.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_054.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_055.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_056.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_057.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_058.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_059.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_060.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_061.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_062.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_063.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_064.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_065.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_066.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_067.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_068.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_069.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_070.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_071.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_072.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_073.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_074.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_075.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_076.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_077.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_078.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_079.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_080.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_081.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_082.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_083.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_084.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_085.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_086.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_087.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_088.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_089.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_090.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_091.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_092.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_093.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_094.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_095.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_096.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_097.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_098.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_099.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_100.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_101.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_102.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_103.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_104.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_105.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_106.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_107.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_108.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_109.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_110.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_111.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_112.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_113.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_114.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_115.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_116.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_117.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_118.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_119.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_120.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_121.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_122.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_123.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_124.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_125.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_126.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_127.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_128.wav",
+      "label": 1,
+      "windows": 3
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_129.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_130.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_131.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_132.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_133.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_134.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_135.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_136.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_137.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_138.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_139.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_140.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_141.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_142.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_143.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_144.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_145.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_146.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_147.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_148.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_149.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_150.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_151.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_152.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_153.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_154.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_155.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_156.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_157.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_158.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_159.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_160.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_161.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_162.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_163.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_164.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_165.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_166.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_167.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_168.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_169.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_170.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_171.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_172.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_173.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_174.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_175.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_176.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_177.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_178.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_179.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_180.wav",
+      "label": 1,
+      "windows": 3
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_181.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_182.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_183.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_184.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_185.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_186.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_187.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_188.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_189.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_190.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_191.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_192.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_193.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_194.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_195.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_196.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_197.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_198.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_199.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_200.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\motocross\\motocross_digital_201.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_001.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_002.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_003.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_004.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_005.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_006.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_007.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_008.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_009.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_010.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_011.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_012.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_013.wav",
+      "label": 1,
+      "windows": 3
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_014.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_015.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_016.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_017.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_018.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_019.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_020.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_021.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_022.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_023.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_024.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_025.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_026.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_027.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_028.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_029.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_030.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_031.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_032.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_033.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_034.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_035.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_036.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_037.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_038.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_039.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_040.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_041.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_042.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_043.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_044.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_045.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_046.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_047.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_048.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_049.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rain\\Lluvia_digital_050.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_001.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_002.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_003.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_004.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_005.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_006.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_007.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_008.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_009.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_010.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_011.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_012.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_013.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_014.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_015.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_016.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_017.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_018.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_019.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_020.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_021.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_022.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_023.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_024.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_025.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_026.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_027.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_028.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_029.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_030.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_031.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_032.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_033.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_034.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_035.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_036.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_037.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_038.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_039.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_040.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_041.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_042.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_043.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_044.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_045.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_046.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_047.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_048.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_049.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_050.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_051.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_052.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_053.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_054.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_055.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_056.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_057.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_058.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_059.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_060.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_061.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_062.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_063.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_064.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_065.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_066.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_067.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_068.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_069.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_070.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_071.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_072.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_073.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_074.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_075.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_076.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_077.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_078.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_079.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_080.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_081.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_082.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_083.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_084.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_085.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_086.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_087.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_088.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_089.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_090.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_091.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_092.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_093.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_094.wav",
+      "label": 1,
+      "windows": 3
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_095.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_096.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_097.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_098.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_099.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_100.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_101.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_102.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_103.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_104.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_105.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_106.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_107.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_108.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_109.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_110.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_111.wav",
+      "label": 1,
+      "windows": 3
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_112.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_113.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_114.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_115.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_116.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_117.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_118.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_119.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_120.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_121.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_122.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_123.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_124.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_125.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_126.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_127.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_128.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_129.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_130.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_131.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_132.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_133.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_134.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_135.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_136.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_137.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_138.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_139.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_140.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_141.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_142.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_143.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_144.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_145.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_146.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_147.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_148.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_149.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_150.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_151.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_152.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_153.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_154.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_155.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_156.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_157.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_158.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_159.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_160.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_161.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_162.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_163.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_164.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_165.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_166.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_167.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_168.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_169.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_170.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_171.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_172.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_173.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_174.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_175.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_176.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_177.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_178.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_179.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_180.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_181.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_182.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_183.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_184.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_185.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_186.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_187.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_188.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_189.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_190.wav",
+      "label": 1,
+      "windows": 3
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_191.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_192.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_193.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_194.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_195.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_196.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_197.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_198.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_199.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_200.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_201.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_202.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_203.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_204.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_205.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_206.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_207.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_208.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_209.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_210.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_211.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_212.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_213.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_214.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_215.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_216.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_217.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_218.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_219.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_220.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_221.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_222.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_223.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_224.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_225.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_226.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_227.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_228.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_229.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_230.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_231.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_232.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_233.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_234.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_235.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_236.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_237.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_238.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_239.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_240.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_241.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_242.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_243.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_244.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_245.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_246.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_247.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_248.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_249.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_250.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_251.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_252.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_253.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_254.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_255.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_256.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_257.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_258.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_259.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_260.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_261.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_262.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_263.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_264.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_265.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_266.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_267.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_268.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_269.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_270.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_271.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_272.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_273.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_274.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_275.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_276.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_277.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_278.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_279.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_280.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_281.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_282.wav",
+      "label": 1,
+      "windows": 3
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_283.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_284.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_285.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_286.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_287.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_288.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_289.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_290.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_291.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_292.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_293.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_294.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_295.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_296.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_297.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_298.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_299.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_300.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_301.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_302.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_303.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_304.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_305.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere\\digital_ambience_rainforest_306.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_001.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_002.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_003.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_004.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_005.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_006.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_007.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_008.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_009.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_010.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_011.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_012.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_013.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_014.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_015.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_016.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_017.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_018.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_019.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_020.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_021.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_022.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_023.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_024.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_025.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_026.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_027.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_028.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_029.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_030.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_031.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_032.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_033.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_034.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_035.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_036.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_037.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_038.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_039.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_040.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_041.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_042.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_043.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_044.wav",
+      "label": 1,
+      "windows": 3
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_045.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_046.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_047.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_048.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_049.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_050.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_051.wav",
+      "label": 1,
+      "windows": 3
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_052.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_053.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_054.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_055.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_056.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_057.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_058.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_059.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_060.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_061.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_062.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_063.wav",
+      "label": 1,
+      "windows": 3
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_064.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_065.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_066.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_067.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_068.wav",
+      "label": 1,
+      "windows": 3
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_069.wav",
+      "label": 1,
+      "windows": 1
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_070.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_071.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_072.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\rainforest_atmosphere_beta\\rainforest_ambience_beta_073.wav",
+      "label": 1,
+      "windows": 2
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_001.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_002.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_003.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_004.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_005.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_006.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_007.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_008.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_009.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_010.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_011.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_012.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_013.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_014.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_015.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_016.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_017.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_018.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_019.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_020.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_021.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_022.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_023.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_024.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_025.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_026.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_027.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_028.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_029.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_030.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_031.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_032.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_033.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_034.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_035.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_036.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_037.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_038.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_039.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_040.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_041.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_042.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_043.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_044.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_045.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_046.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_047.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_048.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_049.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_050.wav",
+      "label": 1,
+      "windows": 4
+    },
+    {
+      "file": "environment\\tropical_rainforest_rain\\Lluvia_selva_tropical_digital_051.wav",
+      "label": 1,
+      "windows": 4
+    }
+  ]
+}

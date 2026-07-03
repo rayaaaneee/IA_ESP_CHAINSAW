@@ -8,6 +8,7 @@ import tensorflow as tf
 
 
 class AIModel:
+    
     def __init__(self, input_dim: int | None = None, learning_rate: float = 1e-3, dropout: float = 0.3):
         self.input_dim = input_dim
         self.learning_rate = learning_rate

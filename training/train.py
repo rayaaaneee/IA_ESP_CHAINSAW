@@ -13,8 +13,8 @@ from extract_features import (DATASET_ROOT, DEFAULT_MANIFEST_PATH,
                               DEFAULT_OUTPUT_PATH, FeatureConfig,
                               build_feature_dataset, save_feature_dataset)
 
-MODEL_PATH = Path(__file__).resolve().parent / "model.h5"
-REPORT_PATH = Path(__file__).resolve().parent / "model" / "training_report.json"
+MODEL_PATH = Path(__file__).resolve().parent / "model" / "model.h5"
+REPORT_PATH = Path(__file__).resolve().parent / "model" / "report" / "training_report.json"
 
 
 def load_or_build_feature_cache(dataset_root: Path, cache_path: Path, manifest_path: Path) -> tuple[np.ndarray, np.ndarray, FeatureConfig]:
