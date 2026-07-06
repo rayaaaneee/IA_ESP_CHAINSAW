@@ -1,7 +1,7 @@
 {
     "folders": [
         { "name": "Global", "path": "." },
-        { "name": "AI (training)", "path": "./training" },
+        { "name": "AI", "path": "./training" },
         { "name": "Firmware", "path": "./firmware" },
         { "name": "Python Virtual Environment", "path": "./venv" }
     ],
