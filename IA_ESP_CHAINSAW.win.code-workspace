@@ -1,0 +1,36 @@
+{
+    "folders": [
+        { "name": "Global", "path": "." },
+        { "name": "AI (training)", "path": "./training" },
+        { "name": "Firmware", "path": "./firmware" },
+        { "name": "Python Virtual Environment", "path": "./venv" }
+    ],
+    "settings": {
+        "python.defaultInterpreterPath": "${workspaceFolder}/venv/Scripts/python.exe",
+        "python.terminal.activateEnvironment": true,
+        "files.exclude": {
+            "**/.git*": true,
+            "data/info.md": false,
+            "data/raw/": true,
+            ".pio/": true,
+            "**/.vscode": true,
+            "**/venv/": true,
+            "**/training/": true,
+            "**/firmware/": true
+        },
+        "search.exclude": {
+            "**/dataset/": true,
+            "**/.pio/": true,
+            "**/.vscode": true,
+            "**/venv/": true
+        },
+        "python-envs.pythonProjects": [
+            {
+                "path": "scripts",
+                "envManager": "ms-python.python:venv",
+                "packageManager": "ms-python.python:pip",
+                "workspace": "Venv"
+            }
+        ]
+    }
+}

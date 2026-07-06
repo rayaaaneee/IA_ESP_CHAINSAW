@@ -25,12 +25,12 @@ This program have to be runned into ESP32
 
 ## PYTHON INSTALLATION PATHWAY
 
-Install Python 3.11.X and add it to your PATH environment variable.
+Install `Python 3.11.X` and add it to your PATH environment variable.
 Afterwards, run the following script `init` to create a virtual environment and install the dependencies.
 
 ### Windows
 
-Follow this link to install Python 3.11.X: [Python 3.11.X](https://www.python.org/downloads/release/python-3110/).
+Follow this link to install [Python 3.11](https://www.python.org/downloads/release/python-3110/).
 
 #### PowerShell
 
@@ -66,6 +66,8 @@ export PATH="/usr/bin/python3.11:$PATH"
 ## Dependencies Management
 
 If you are adding a library to the `requirements.in` file (base requirements), you have to run the `invoke dependencies` command to update the `requirements.txt` file using **pip-tools**.
+
+Please install on your system the `make` command, which is required to run specific tasks linked to the C++ compilation and the ESP32 firmware build process. You can install it using your package manager (e.g., `apt`, `yum`, `brew`, etc.) depending on your operating system.
 
 ## VSCODE 
 
