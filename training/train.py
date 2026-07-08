@@ -30,7 +30,6 @@ def load_or_build_feature_cache(dataset_root: Path, cache_path: Path, manifest_p
 	save_feature_dataset(cache_path, manifest_path, features, labels, config, manifest)
 	return features, labels, config
 
-
 def stratified_split(
 	features: np.ndarray,
 	labels: np.ndarray,
@@ -39,7 +38,7 @@ def stratified_split(
 	seed: int = 42,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
 	if features.shape[0] != labels.shape[0]:
-		raise ValueError("features et labels doivent avoir le même nombre d'exemples")
+		raise ValueError("Features and labels must have the same number of samples.")
 
 	rng = np.random.default_rng(seed)
 	train_indices: list[int] = []
@@ -144,8 +143,8 @@ def main() -> None:
 		encoding="utf-8",
 	)
 
-	print(f"Modèle entraîné et sauvegardé dans {args.model}")
-	print(f"Rapport d'entraînement sauvegardé dans {REPORT_PATH}")
+	print(f"Model successfully trained and saved to {args.model}")
+	print(f"Training history: {history.history}")
 	print(f"Validation: {validation_metrics}")
 	print(f"Test: {test_metrics}")
 

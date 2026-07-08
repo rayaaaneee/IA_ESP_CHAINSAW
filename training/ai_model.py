@@ -44,7 +44,7 @@ class AIModel:
         if array.ndim == 1:
             array = array.reshape(1, -1)
         if array.ndim != 2:
-            raise ValueError(f"Les données doivent être un vecteur ou une matrice 2D, reçu: {array.shape}")
+            raise ValueError(f"Data shape {array.shape} is not supported. Expected 1D or 2D array.")
         return array
 
     def train(
@@ -88,8 +88,7 @@ class AIModel:
 
     def predict(self, data: Any, threshold: float = 0.5) -> np.ndarray:
         if self.model is None:
-            raise RuntimeError("Le modèle n'est pas initialisé.")
-
+            raise RuntimeError("Model isn't initialized.")
         x_data = self.preprocess_data(data)
         probabilities = self.model.predict(x_data, verbose=0).reshape(-1)
         if threshold is None:
@@ -98,7 +97,7 @@ class AIModel:
 
     def evaluate(self, data: Any, labels: Any, verbose: int = 0) -> dict[str, float]:
         if self.model is None:
-            raise RuntimeError("Le modèle n'est pas initialisé.")
+            raise RuntimeError("Model isn't initialized.")
 
         x_eval = self.preprocess_data(data)
         y_eval = np.asarray(labels, dtype=np.float32).reshape(-1)
@@ -121,11 +120,12 @@ class AIModel:
                 "false_negatives": float(fn),
             }
         )
+
         return scores
 
     def save_model(self, path: str | Path) -> None:
         if self.model is None:
-            raise RuntimeError("Aucun modèle à sauvegarder.")
+            raise RuntimeError("No model to save. Please train or load a model before saving.")
 
         destination = Path(path)
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -139,11 +139,11 @@ class AIModel:
         probabilities = np.asarray(data, dtype=np.float32).reshape(-1)
         return (probabilities >= threshold).astype(np.int32)
 
-    def visualize_results(self, results: Any) -> None:
-        raise NotImplementedError("La visualisation n'est pas encore implémentée.")
+    # def visualize_results(self, results: Any) -> None:
+    #     raise NotImplementedError("La visualisation n'est pas encore implémentée.")
 
-    def optimize_hyperparameters(self, data: Any) -> None:
-        raise NotImplementedError("L'optimisation d'hyperparamètres n'est pas encore implémentée.")
+    # def optimize_hyperparameters(self, data: Any) -> None:
+    #     raise NotImplementedError("L'optimisation d'hyperparamètres n'est pas encore implémentée.")
 
-    def explain_predictions(self, data: Any) -> None:
-        raise NotImplementedError("L'explication des prédictions n'est pas encore implémentée.")
+    # def explain_predictions(self, data: Any) -> None:
+    #     raise NotImplementedError("L'explication des prédictions n'est pas encore implémentée.")
