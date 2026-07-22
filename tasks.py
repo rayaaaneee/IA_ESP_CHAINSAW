@@ -24,10 +24,17 @@ def list(c):
 @task(aliases=["t"])
 def train(c):
     # Extract features and train the AI model.
-    print("Extracting audio features...")
-    c.run(f'"{PYTHON}" training/extract_features.py')
+    # Only extract features if cache/manifest are missing or inconsistent.
+    print("Checking feature cache...")
+    res = c.run(f'"{PYTHON}" training/check_cache.py', warn=True)
+    if not res.ok:
+        print("Extracting audio features...")
+        c.run(f'"{PYTHON}" training/extract_features.py')
+    else:
+        print("Feature cache is valid; skipping extraction.")
     print("Training TensorFlow model...")
-    c.run(f'"{PYTHON}" training/train.py')
+    # We already checked (and possibly refreshed) the cache above, so tell train.py not to re-extract.
+    c.run(f'"{PYTHON}" training/train.py --no-extract')
 
 @task(aliases=["c"])
 def convert(c):
@@ -67,6 +74,12 @@ def dependencies(c):
     # Reset the virtual environment by removing it and reinstalling dependencies.
     print("Compiling dependencies from requirements.in...")
     c.run(f'"{PYTHON}" -m piptools compile --upgrade requirements.in --output-file=requirements.txt')
+    
+@task(aliases=["s", "sync_deps", "sync", "sd"])
+def sync_dependencies(c):
+    # Synchronize the virtual environment with the compiled requirements.txt.
+    print("Synchronizing virtual environment with requirements.txt...")
+    c.run(f'{PYTHON} -m piptools sync requirements.txt')
 
 @task(aliases=["i", "r", "reset", "reinstall"])
 def install(c):
@@ -77,6 +90,12 @@ def extract_features(c):
     # Extract audio features from the dataset and save them to a compressed .npz file.
     print("Extracting audio features to compressed .npz file...")
     c.run(f'"{PYTHON}" training/extract_features.py')
+    
+@task(aliases=["check_labels", "cl"])
+def labels(c):
+    # Check the labels in the feature dataset manifest for potential mislabelling.
+    print("Checking labels in feature dataset manifest...")
+    c.run(f'"{PYTHON}" training/check_labels.py')
     
 @task(pre=[extract_features, train, convert], aliases=["fp", "pl", "pipeline"])
 def full_pipeline(c):

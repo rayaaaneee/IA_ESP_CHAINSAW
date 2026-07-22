@@ -8,7 +8,9 @@ MODEL_OUT_PATH = Path(__file__).resolve().parent.parent / "firmware" / "model" /
 
 MODEL_OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
 
-MODEL_HEADER_PATH = Path(__file__).resolve().parent.parent / "firmware" / "model" / "model.h"
+MODEL_BASE_PATH = Path(__file__).resolve().parent.parent / "firmware" / "model"
+MODEL_HEADER_PATH = MODEL_BASE_PATH / "model.h"
+MODEL_CPP_PATH = MODEL_BASE_PATH / "model.cpp"
 
 MODEL_HEADER_PATH.parent.mkdir(parents=True, exist_ok=True)
 
@@ -38,13 +40,27 @@ def hex_to_c_array(hex_data, var_name):
     c_str = c_str[:-2] + "\n};"
     return c_str
 
-header_content = "#ifndef MODEL_H\n#define MODEL_H\n\n"
-header_content += hex_to_c_array(tflite_model, "g_model_data")
-header_content += "\n\nconst unsigned int g_model_data_len = " + str(len(tflite_model)) + ";"
-header_content += "\n\n#endif // MODEL_H"
+# Generate the content of the .h file (DECLARATION)
+header_content = """#ifndef MODEL_H
+#define MODEL_H
 
-# Write the header content to model.h
+// Extern declaration of the TensorFlow Lite model data and its length
+extern const unsigned char g_model_data[];
+extern const unsigned int g_model_data_len;
+
+#endif // MODEL_H
+"""
+
+# Generate the content of the .cpp file (DEFINITION)
+cpp_content = '#include "model.h"\n\n'
+cpp_content += hex_to_c_array(tflite_model, "g_model_data")
+cpp_content += f"\n\nconst unsigned int g_model_data_len = {len(tflite_model)};\n"
+
+# Write the header and cpp files
 with open(MODEL_HEADER_PATH, 'w') as f:
     f.write(header_content)
+
+with open(MODEL_CPP_PATH, 'w') as f:
+    f.write(cpp_content)
 
 print("Model successfully converted to TensorFlow Lite format and saved to model.tflite and model.h")

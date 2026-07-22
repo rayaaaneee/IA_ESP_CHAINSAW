@@ -13,3 +13,6 @@ invoke==3.0.3
 
 # Development Tools
 pip-tools==7.5.3
+
+# Graphical User Interface (GUI)
+matplotlib==3.11.1

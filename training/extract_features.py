@@ -30,14 +30,24 @@ class FeatureConfig:
 
 
 def infer_label(audio_path: Path) -> int:
-    searchable = " ".join(part.lower() for part in audio_path.parts + (audio_path.stem,))
+    # Prefer exact matching on path components (folder names and stem)
+    parts = [part.lower() for part in (*audio_path.parts, audio_path.stem)]
 
+    # Exact match first to avoid substring collisions (e.g., 'moto' inside larger words)
+    if any(part in POSITIVE_TOKENS for part in parts):
+        return 1
+    if any(part in NEGATIVE_TOKENS for part in parts):
+        return 0
+
+    # Fallback to substring search for cases like hyphenation or combined words,
+    # but log a clear error if nothing matches so developer can inspect files.
+    searchable = " ".join(parts)
     if any(token in searchable for token in POSITIVE_TOKENS):
         return 1
     if any(token in searchable for token in NEGATIVE_TOKENS):
         return 0
 
-    raise ValueError(f"Unable to infer label for {audio_path}")
+    raise ValueError(f"Unable to infer label for {audio_path}; please update POSITIVE_TOKENS/NEGATIVE_TOKENS or dataset layout")
 
 
 def load_audio(audio_path: Path, config: FeatureConfig) -> np.ndarray:
@@ -144,22 +154,69 @@ def build_feature_dataset(dataset_root: Path, config: FeatureConfig) -> tuple[np
     labels: list[int] = []
     manifest: list[dict[str, object]] = []
 
+    # Mapping from top-level folder to expected label. If an inferred label conflicts with this mapping, the folder's label takes precedence.
+    TOP_FOLDER_LABEL = {
+        "chainsaw": 1,
+        "motosierra": 1,
+        "environment": 0,
+        "motocross": 0,
+        "lluvia": 0,
+        "rain": 0,
+        "rainforest": 0,
+    }
+
+    corrections: list[tuple[str, int, int]] = []  # (relpath, inferred, final)
+
     for audio_path in audio_files:
-        label = infer_label(audio_path)
+        # Infer label using existing logic, but be defensive on failures
+        try:
+            inferred_label = infer_label(audio_path)
+        except Exception:
+            inferred_label = None
+
+        # Determine top-level folder relative to the dataset root
+        try:
+            rel = audio_path.relative_to(dataset_root)
+            top = rel.parts[0].lower() if rel.parts else ""
+        except Exception:
+            top = ""
+
+        # Decide final label: prefer folder mapping when available
+        final_label = inferred_label
+        if top in TOP_FOLDER_LABEL:
+            top_label = TOP_FOLDER_LABEL[top]
+            if inferred_label is None or inferred_label != top_label:
+                final_label = top_label
+                corrections.append((str(rel), -1 if inferred_label is None else int(inferred_label), int(top_label)))
+
+        if final_label is None:
+            # No reliable signal: raise so the user can inspect dataset layout
+            raise ValueError(f"Unable to infer label for {audio_path}; please update dataset layout or tokens")
+
         signal = load_audio(audio_path, config)
         windows = list(iter_windows(signal, config))
 
         for window in windows:
             features.append(extract_feature_vector(window, config))
-            labels.append(label)
+            labels.append(int(final_label))
 
-        manifest.append(
-            {
-                "file": str(audio_path.relative_to(dataset_root)),
-                "label": label,
-                "windows": len(windows),
-            }
-        )
+        manifest_entry: dict[str, object] = {
+            "file": str(audio_path.relative_to(dataset_root)),
+            "label": int(final_label),
+            "windows": len(windows),
+        }
+        # If we corrected the label, persist the original inferred label for traceability
+        if corrections and corrections[-1][0] == str(audio_path.relative_to(dataset_root)):
+            inferred_val = corrections[-1][1]
+            manifest_entry["inferred_label"] = None if inferred_val == -1 else inferred_val
+            manifest_entry["corrected"] = True
+
+        manifest.append(manifest_entry)
+
+    if corrections:
+        print(f"Label corrections applied for {len(corrections)} files. Examples:")
+        for relpath, inferred, final in corrections[:10]:
+            print(f" - {relpath}: inferred={inferred} -> final={final}")
 
     x_data = np.vstack(features).astype(np.float32)
     y_data = np.asarray(labels, dtype=np.int32)
