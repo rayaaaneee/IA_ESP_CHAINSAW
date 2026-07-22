@@ -4,11 +4,11 @@ import tensorflow as tf
 
 from train import MODEL_PATH
 
-MODEL_OUT_PATH = Path(__file__).resolve().parent.parent / "firmware" / "model" / "model.tflite"
+MODEL_BASE_PATH = Path(__file__).resolve().parent.parent / "firmware" / "src" / "model"
 
-MODEL_OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+MODEL_BASE_PATH.mkdir(parents=True, exist_ok=True)
 
-MODEL_BASE_PATH = Path(__file__).resolve().parent.parent / "firmware" / "model"
+MODEL_OUT_PATH = MODEL_BASE_PATH / "model.tflite"
 MODEL_HEADER_PATH = MODEL_BASE_PATH / "model.h"
 MODEL_CPP_PATH = MODEL_BASE_PATH / "model.cpp"
 

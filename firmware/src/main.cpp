@@ -1,18 +1,14 @@
 #include <Arduino.h>
+#include <model/model.h>
 
-// La plupart des ESP32 utilisent le GPIO 2 pour la LED intégrée
-#ifndef LED_BUILTIN
-#define LED_BUILTIN 2
+// PINS Definitions
+#ifndef PINS
+#define PIN_EXAMPLE 1
 #endif
 
 void setup() {
-  // Initialisation de la broche de la LED en sortie
-  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);  // Allume la LED
-  delay(1000);                      // Attend 1 seconde
-  digitalWrite(LED_BUILTIN, LOW);   // Éteint la LED
-  delay(1000);                      // Attend 1 seconde
+  delay(1000);
 }
