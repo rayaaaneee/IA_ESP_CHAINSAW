@@ -42,7 +42,7 @@ def convert(c):
     print("Converting model to TFLite header...")
     c.run(f'"{PYTHON}" training/convert_to_tflite.py')
 
-@task(pre=[convert], aliases=["b"])
+@task(aliases=["b"])
 def build(c):
     # Compile the C++ firmware for the ESP32 using PlatformIO.
     print("Building ESP32 firmware...")
