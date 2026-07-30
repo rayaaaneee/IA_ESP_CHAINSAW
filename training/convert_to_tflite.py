@@ -52,7 +52,7 @@ extern const unsigned int g_model_data_len;
 """
 
 # Generate the content of the .cpp file (DEFINITION)
-cpp_content = '#include "model/²inference.h"\n\n'
+cpp_content = '#include "model/inference.h"\n\n'
 cpp_content += hex_to_c_array(tflite_model, "g_model_data")
 cpp_content += f"\n\nconst unsigned int g_model_data_len = {len(tflite_model)};\n"
 
