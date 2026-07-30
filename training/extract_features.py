@@ -20,7 +20,7 @@ NEGATIVE_TOKENS = ("environment", "motocross", "lluvia", "rainforest")
 
 @dataclass(frozen=True)
 class FeatureConfig:
-    sample_rate: int = 16_000
+    sample_rate: int = 8_000
     window_seconds: float = 2.0
     hop_seconds: float = 1.0
     n_mfcc: int = 20

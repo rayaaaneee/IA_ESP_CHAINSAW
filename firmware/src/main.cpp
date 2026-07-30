@@ -32,11 +32,9 @@ void setup() {
 
   static tflite::AllOpsResolver resolver;
 
-  // --- NOUVEAU : Création de l'Error Reporter ---
   static tflite::MicroErrorReporter micro_error_reporter;
   tflite::ErrorReporter* error_reporter = &micro_error_reporter;
 
-  // --- MODIFIÉ : On ajoute error_reporter à la fin ---
   static tflite::MicroInterpreter static_interpreter(
       tflite_model, resolver, tensor_arena, kTensorArenaSize, error_reporter);
       

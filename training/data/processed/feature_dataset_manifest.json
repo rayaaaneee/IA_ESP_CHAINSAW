@@ -1,6 +1,6 @@
 {
   "config": {
-    "sample_rate": 16000,
+    "sample_rate": 8000,
     "window_seconds": 2.0,
     "hop_seconds": 1.0,
     "n_mfcc": 20,

@@ -1,7 +1,5 @@
 Oui — il y a des différences très nettes et révélatrices.
 
-
-
 - **Class Weights:**  
 
   - Avant: `{"0": 950.0, "1": 0.5}` (absurde / signe d'un y_train cassé).  

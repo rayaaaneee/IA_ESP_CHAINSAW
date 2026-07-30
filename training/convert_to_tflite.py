@@ -4,13 +4,13 @@ import tensorflow as tf
 
 from train import MODEL_PATH
 
-MODEL_BASE_PATH = Path(__file__).resolve().parent.parent / "firmware" / "src" / "model"
+MODEL_BASE_PATH = Path(__file__).resolve().parent.parent / "firmware"
 
 MODEL_BASE_PATH.mkdir(parents=True, exist_ok=True)
 
-MODEL_OUT_PATH = MODEL_BASE_PATH / "model.tflite"
-MODEL_HEADER_PATH = MODEL_BASE_PATH / "model.h"
-MODEL_CPP_PATH = MODEL_BASE_PATH / "model.cpp"
+MODEL_OUT_PATH = MODEL_BASE_PATH / "src" / "data" / "model.tflite"
+MODEL_HEADER_PATH = MODEL_BASE_PATH / "include" / "model" / "inference.h"
+MODEL_CPP_PATH = MODEL_BASE_PATH / "src" / "model" / "inference.cpp"
 
 MODEL_HEADER_PATH.parent.mkdir(parents=True, exist_ok=True)
 
@@ -41,18 +41,18 @@ def hex_to_c_array(hex_data, var_name):
     return c_str
 
 # Generate the content of the .h file (DECLARATION)
-header_content = """#ifndef MODEL_H
-#define MODEL_H
+header_content = """#ifndef INFERENCE_H
+#define INFERENCE_H
 
 // Extern declaration of the TensorFlow Lite model data and its length
 extern const unsigned char g_model_data[];
 extern const unsigned int g_model_data_len;
 
-#endif // MODEL_H
+#endif // INFERENCE_H
 """
 
 # Generate the content of the .cpp file (DEFINITION)
-cpp_content = '#include "model.h"\n\n'
+cpp_content = '#include "model/²inference.h"\n\n'
 cpp_content += hex_to_c_array(tflite_model, "g_model_data")
 cpp_content += f"\n\nconst unsigned int g_model_data_len = {len(tflite_model)};\n"
 
@@ -63,4 +63,4 @@ with open(MODEL_HEADER_PATH, 'w') as f:
 with open(MODEL_CPP_PATH, 'w') as f:
     f.write(cpp_content)
 
-print("Model successfully converted to TensorFlow Lite format and saved to model.tflite and model.h")
+print("Model successfully converted to TensorFlow Lite format and saved to model.tflite and inference.h")
