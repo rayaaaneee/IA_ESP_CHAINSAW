@@ -9,7 +9,7 @@ from pathlib import Path
 
 import numpy as np
 import tensorflow as tf
-from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.utils.class_weight import \
     compute_class_weight as skl_compute_class_weight
 
@@ -67,33 +67,68 @@ def load_or_build_feature_cache(dataset_root: Path, cache_path: Path, manifest_p
 	print(f"Features extracted and cached to {cache_path}")
 	return features, labels, config
 
-def stratified_split(
+
+def load_sample_groups(manifest_path: Path, sample_count: int) -> np.ndarray:
+	manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+	files = manifest.get("files", [])
+	groups: list[str] = []
+
+	for entry in files:
+		windows = int(entry.get("windows", 1))
+		group = str(entry.get("group") or entry.get("file") or "")
+		groups.extend([group] * windows)
+
+	if len(groups) != sample_count:
+		raise ValueError(
+			f"Manifest groups do not match sample count: groups={len(groups)} samples={sample_count}. Rebuild the feature cache with --force-extract."
+		)
+
+	return np.asarray(groups, dtype=object)
+
+def stratified_group_split(
 	features: np.ndarray,
 	labels: np.ndarray,
+	groups: np.ndarray,
 	train_ratio: float = 0.7,
 	validation_ratio: float = 0.15,
 	seed: int = 42,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
 	if features.shape[0] != labels.shape[0]:
 		raise ValueError("Features and labels must have the same number of samples.")
+	if features.shape[0] != groups.shape[0]:
+		raise ValueError("Features and groups must have the same number of samples.")
 
-	# First split: train / temp (val+test)
-	sss = StratifiedShuffleSplit(n_splits=1, test_size=1.0 - train_ratio, random_state=seed)
-	train_idx, temp_idx = next(sss.split(features, labels))
+	unique_groups, first_indices = np.unique(groups, return_index=True)
+	group_labels = labels[first_indices]
+	group_indices = np.arange(unique_groups.shape[0])
 
-	temp_features, temp_labels = features[temp_idx], labels[temp_idx]
+	if unique_groups.shape[0] < 5:
+		raise ValueError("Not enough distinct audio files to perform a 5-fold stratified group split.")
 
-	# Second split inside temp: validation / test with relative size
-	if (1.0 - train_ratio) <= 0:
-		raise ValueError("train_ratio must be < 1.0")
-	val_relative = validation_ratio / (1.0 - train_ratio)
-	val_relative = min(max(val_relative, 0.0), 1.0)
-	sss2 = StratifiedShuffleSplit(n_splits=1, test_size=1.0 - val_relative, random_state=seed)
-	val_idx_rel, test_idx_rel = next(sss2.split(temp_features, temp_labels))
+	sgkf = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=seed)
+	fold_groups: list[np.ndarray] = []
+	for _, fold_group_idx in sgkf.split(group_indices, group_labels, groups=unique_groups):
+		fold_groups.append(unique_groups[fold_group_idx])
 
-	x_train, y_train = features[train_idx], labels[train_idx]
-	x_val, y_val = temp_features[val_idx_rel], temp_labels[val_idx_rel]
-	x_test, y_test = temp_features[test_idx_rel], temp_labels[test_idx_rel]
+	if len(fold_groups) != 5:
+		raise RuntimeError("Unexpected number of folds returned by StratifiedGroupKFold.")
+
+	train_groups = np.concatenate(fold_groups[:3])
+	val_groups = fold_groups[3]
+	test_groups = fold_groups[4]
+
+	train_mask = np.isin(groups, train_groups)
+	val_mask = np.isin(groups, val_groups)
+	test_mask = np.isin(groups, test_groups)
+
+	if not np.all(train_mask | val_mask | test_mask):
+		raise RuntimeError("Some samples were not assigned to any split.")
+	if np.any(train_mask & val_mask) or np.any(train_mask & test_mask) or np.any(val_mask & test_mask):
+		raise RuntimeError("Group split produced overlapping samples.")
+
+	x_train, y_train = features[train_mask], labels[train_mask]
+	x_val, y_val = features[val_mask], labels[val_mask]
+	x_test, y_test = features[test_mask], labels[test_mask]
 
 	return x_train, y_train, x_val, y_val, x_test, y_test
 
@@ -122,8 +157,9 @@ def main() -> None:
 	args = parser.parse_args()
 
 	features, labels, config = load_or_build_feature_cache(args.dataset, args.cache, args.manifest, force_extract=args.force_extract, no_extract=args.no_extract)
+	groups = load_sample_groups(args.manifest, labels.size)
 	# Split dataset with stratification and then show label distributions for debug
-	x_train, y_train, x_validation, y_validation, x_test, y_test = stratified_split(features, labels, seed=args.seed)
+	x_train, y_train, x_validation, y_validation, x_test, y_test = stratified_group_split(features, labels, groups, seed=args.seed)
 
 	print("Label distribution after split:")
 	print(" - train:", dict(Counter(y_train)))

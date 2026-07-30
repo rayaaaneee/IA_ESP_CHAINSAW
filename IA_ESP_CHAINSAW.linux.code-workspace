@@ -22,7 +22,8 @@
             "**/dataset/": true,
             "**/.pio/": true,
             "**/.vscode": true,
-            "**/venv/": true
+            "**/venv/": true,
+            "**/.venv/": true
         }
     }
 }

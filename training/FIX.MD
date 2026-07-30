@@ -48,7 +48,7 @@ Recommandations rapides
 
 - Faire k-fold stratifié ou repeats pour vérifier robustesse (éviter conclusions sur un seul split).  
 
-- Vérifier fuite de données / duplication d'échantillons (metrics très élevées peuvent encore cacher fuite).  
+- Vérifier fuite de données / duplication d'échantillons (metrics très élevées peuvent encore cacher fuite).
 
 - Si tu veux, je lance un run de cross‑validation rapide ou j'ajoute un check automatique pour les fuites/duplications.
 
@@ -77,7 +77,9 @@ Comment régler ça étape par étape :
 1. Régler la fuite de données (Group Split)
 Tu dois t'assurer que toutes les fenêtres extraites d'un même fichier audio d'origine vont soit toutes dans le train, soit toutes dans le test, mais jamais dans les deux.
 
-La solution code : Si tu utilises scikit-learn, remplace ton train_test_split classique par un GroupShuffleSplit ou StratifiedGroupKFold. Utilise le nom du fichier audio d'origine comme "groupe".
+La bonne solution ici est `StratifiedGroupKFold` : il empêche la fuite de données entre fenêtres d'un même fichier, tout en gardant une répartition des classes proche entre les splits. C'est mieux qu'un split aléatoire classique dans ton cas, parce que tu as beaucoup moins d'exemples "tronçonneuse" que d'exemples "environnement".
+
+Concrètement, le "groupe" doit être le fichier audio source lui-même. Chaque fenêtre issue de ce fichier reçoit le même identifiant de groupe, puis le split se fait sur ces groupes et non sur les fenêtres individuellement.
 
 2. La taille critique de ton jeu de test (30 positifs)
 Actuellement, ton jeu de test ne contient que 30 exemples de tronçonneuses (TP=30). C'est très faible. Si le modèle se trompe sur un seul extrait, ta précision chute de plus de 3%.

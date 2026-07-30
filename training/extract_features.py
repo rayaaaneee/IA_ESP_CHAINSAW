@@ -202,6 +202,7 @@ def build_feature_dataset(dataset_root: Path, config: FeatureConfig) -> tuple[np
 
         manifest_entry: dict[str, object] = {
             "file": str(audio_path.relative_to(dataset_root)),
+            "group": str(audio_path.relative_to(dataset_root)).replace("\\", "/"),
             "label": int(final_label),
             "windows": len(windows),
         }
