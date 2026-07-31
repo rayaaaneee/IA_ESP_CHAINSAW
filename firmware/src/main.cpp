@@ -37,7 +37,7 @@ void setup() {
 
   static tflite::MicroInterpreter static_interpreter(
       tflite_model, resolver, tensor_arena, kTensorArenaSize, error_reporter);
-      
+
   interpreter = &static_interpreter;
 
   if (interpreter->AllocateTensors() != kTfLiteOk) {

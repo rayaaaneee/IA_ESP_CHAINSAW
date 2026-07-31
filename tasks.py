@@ -1,20 +1,20 @@
 import os
 import sys
 
-from invoke import Collection, Program, task
-from invoke.exceptions import ParseError
+from invoke import task
 
 # Active virtual environment is assumed when this script runs
 IS_WIN = sys.platform == "win32"
 
 VENV = os.environ.get("VIRTUAL_ENV")
-if VENV is None:
-    raise RuntimeError("No virtual environment is active.")
+if not VENV:
+    raise RuntimeError("No active virtual environment detected. Please activate a virtual environment before running tasks.py.")
 
 PYTHON = os.path.join(VENV, "Scripts", "python.exe") if IS_WIN else os.path.join(VENV, "bin", "python")
 PIP = os.path.join(VENV, "Scripts", "pip.exe") if IS_WIN else os.path.join(VENV, "bin", "pip")
-PIO = os.path.join(VENV, "Scripts", "pio.exe") if IS_WIN else os.path.join(VENV, "bin", "pio")
+PIO = os.path.join(VENV, "Scripts", "platformio.exe") if IS_WIN else os.path.join(VENV, "bin", "platformio")
 INV = os.path.join(VENV, "Scripts", "invoke.exe") if IS_WIN else os.path.join(VENV, "bin", "invoke")
+
 
 @task(aliases=["l"])
 def list(c):
@@ -26,7 +26,8 @@ def train(c):
     # Extract features and train the AI model.
     # Only extract features if cache/manifest are missing or inconsistent.
     print("Checking feature cache...")
-    res = c.run(f'"{PYTHON}" training/check_cache.py', warn=True)
+    res = c.run(f'"{PYTHON}" training/check/check_cache.py', warn=True)
+
     if not res.ok:
         print("Extracting audio features...")
         c.run(f'"{PYTHON}" training/extract_features.py')
@@ -36,11 +37,17 @@ def train(c):
     # We already checked (and possibly refreshed) the cache above, so tell train.py not to re-extract.
     c.run(f'"{PYTHON}" training/train.py --no-extract')
 
-@task(aliases=["c"])
+@task(aliases=["c", "tflite", "tfl"])
 def convert(c):
     # Convert the trained model to TensorFlow Lite format (model.h).
     print("Converting model to TFLite header...")
     c.run(f'"{PYTHON}" training/convert_to_tflite.py')
+
+@task(aliases=["vt", "v-tflite", "v-lite", "vtflite", "v-tfl", "vtfl", "vlite"])
+def validate_tflite(c):
+    # Validate the generated TensorFlow Lite model by running inference on a sample input.
+    print("Validating TFLite model, comparing results and generating report...")
+    c.run(f'"{PYTHON}" training/validate_tflite.py')
 
 @task(aliases=["b"])
 def build(c):
@@ -90,15 +97,27 @@ def extract_features(c):
     # Extract audio features from the dataset and save them to a compressed .npz file.
     print("Extracting audio features to compressed .npz file...")
     c.run(f'"{PYTHON}" training/extract_features.py')
-    
+
 @task(aliases=["check_labels", "cl"])
 def labels(c):
     # Check the labels in the feature dataset manifest for potential mislabelling.
     print("Checking labels in feature dataset manifest...")
-    c.run(f'"{PYTHON}" training/check_labels.py')
-    
+    c.run(f'"{PYTHON}" training/check/check_labels.py')
+
 @task(pre=[extract_features, train, convert], aliases=["fp", "pl", "pipeline"])
-def full_pipeline(c):
+def full_pipeline(_):
     # Run the full pipeline: extract features, train the model, and convert to TFLite.
     print("Running full pipeline: extract features, train model, convert to TFLite...")
     pass
+
+@task(aliases=["plt", "graph_latest", "gl"])
+def plot_latest(c):
+    # Plot the learning curves from the most recent training report.
+    print("Plotting learning curves from the most recent training report...")
+    c.run(f'"{PYTHON}" training/charts.py --latest')
+
+@task(aliases=["ph", "graph_history", "gh"])
+def plot_history(c):
+    # Plot the evolution of final test/validation metrics across all training reports.
+    print("Plotting history of final metrics across all training reports...")
+    c.run(f'"{PYTHON}" training/charts.py --history')

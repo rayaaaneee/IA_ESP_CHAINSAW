@@ -1,0 +1,14 @@
+run:
+  echo: false
+  warn: false
+  pty: false
+  replace_env: false
+
+tasks:
+  collection_name: tasks
+  auto_dash_names: true
+  dedupe: true
+  ignore_unknown_help: false
+
+timeouts:
+  command: null

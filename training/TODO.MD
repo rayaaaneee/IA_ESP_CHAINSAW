@@ -22,3 +22,11 @@ Si tu veux, je peux faire le bilan suivant sous forme très pratique:
 1. ce qu’il faut garder tel quel;
 2. ce qu’il faut simplifier pour l’ESP32;
 3. ce qu’il faut changer avant de passer à la conversion TFLite.
+
+
+# F1 Score
+
+# Confusion Matrix
+
+# Graphics :
+- Accuracy, Precision, Recall, AUC (Bar Chart)

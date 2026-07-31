@@ -3,8 +3,9 @@ from pathlib import Path
 
 import numpy as np
 
-CACHE = Path(__file__).resolve().parent / "data" / "processed" / "feature_dataset.npz"
-MANIFEST = Path(__file__).resolve().parent / "data" / "processed" / "feature_dataset_manifest.json"
+PROCESSED_DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "processed"
+CACHE = PROCESSED_DATA_PATH / "feature_dataset.npz"
+MANIFEST = PROCESSED_DATA_PATH / "feature_dataset_manifest.json"
 
 
 def main():

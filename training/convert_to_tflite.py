@@ -4,13 +4,11 @@ import tensorflow as tf
 
 from train import MODEL_PATH
 
-MODEL_BASE_PATH = Path(__file__).resolve().parent.parent / "firmware"
+MODEL_BASE_PATH = Path(__file__).resolve().parent.parent
 
-MODEL_BASE_PATH.mkdir(parents=True, exist_ok=True)
-
-MODEL_OUT_PATH = MODEL_BASE_PATH / "src" / "data" / "model.tflite"
-MODEL_HEADER_PATH = MODEL_BASE_PATH / "include" / "model" / "inference.h"
-MODEL_CPP_PATH = MODEL_BASE_PATH / "src" / "model" / "inference.cpp"
+MODEL_OUT_PATH = Path(__file__).resolve().parent / "model" / "model.tflite"
+MODEL_HEADER_PATH = MODEL_BASE_PATH / "firmware" / "include" / "model" / "inference.h"
+MODEL_CPP_PATH = MODEL_BASE_PATH / "firmware" / "src" / "model" / "inference.cpp"
 
 MODEL_HEADER_PATH.parent.mkdir(parents=True, exist_ok=True)
 
@@ -44,8 +42,10 @@ def hex_to_c_array(hex_data, var_name):
 header_content = """#ifndef INFERENCE_H
 #define INFERENCE_H
 
-// Extern declaration of the TensorFlow Lite model data and its length
+// Declaration of the TensorFlow Lite model data
 extern const unsigned char g_model_data[];
+
+// Declaration of the length of the TensorFlow Lite model data
 extern const unsigned int g_model_data_len;
 
 #endif // INFERENCE_H
