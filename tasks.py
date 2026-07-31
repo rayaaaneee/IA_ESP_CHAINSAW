@@ -63,7 +63,7 @@ def build(c):
     with c.cd(FIRMWARE):
         c.run(f'"{PIO}" run')
 
-@task(aliases=["up", "flash", "f"])
+@task(aliases=["up", "u", "flash", "f", "run"])
 def upload(c):
     # Upload the compiled firmware to the connected ESP32 board.
     print("Flashing firmware to ESP32...")

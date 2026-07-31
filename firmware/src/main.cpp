@@ -1,9 +1,14 @@
 #include <Arduino.h>
 
+// TensorFlow Lite Micro
 #include <tensorflow/lite/micro/all_ops_resolver.h>
 #include <tensorflow/lite/micro/micro_interpreter.h>
-#include <tensorflow/lite/schema/schema_generated.h>
 #include <tensorflow/lite/micro/micro_error_reporter.h>
+#include <tensorflow/lite/schema/schema_generated.h>
+
+#include <RadioLib.h>
+
+#include <arduinoFFT.h>
 
 #include "model/inference.h"
 
