@@ -2,7 +2,7 @@ import json
 from collections import Counter, defaultdict
 from pathlib import Path
 
-MANIFEST = Path(__file__).resolve().parent / "data" / "processed" / "feature_dataset_manifest.json"
+from .globals import MANIFEST
 
 
 def main():
@@ -31,7 +31,9 @@ def main():
             print(f" - {f}: {label}")
     else:
         print("\nNo obvious mislabelling detected by heuristic.")
+    
+    return 0 if not unexpected else 1
 
 
 if __name__ == "__main__":
-    main()
+    SystemExit(main())
