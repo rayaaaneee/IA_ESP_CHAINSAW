@@ -29,5 +29,4 @@ echo "Upgrading pip and installing dependencies..."
 "$PYTHON_EXEC" -m pip install -r requirements.txt
 
 echo -e "\nSetup complete."
-echo -e "You can now run 'invoke train' to start training the model."
 echo -e "Finalized initialization! Please run 'invoke list' to see available tasks.\n"
