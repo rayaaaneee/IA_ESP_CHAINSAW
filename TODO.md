@@ -24,3 +24,5 @@
 - [ ] Quel est le format attendu des données d'entraînement ? WAV
 - [ ] Quelle classe finale doit être détectée par le modèle ? CHAINSAW / EVERYTHING ELSE
 - [ ] Faut-il une détection temps réel ou par fenêtre glissante ?
+
+## On ne peut 

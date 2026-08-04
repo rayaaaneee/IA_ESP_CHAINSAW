@@ -118,7 +118,7 @@ def labels(c):
     with c.cd(TRAINING):
         c.run(f'"{PYTHON}" check.py --labels')
 
-@task(pre=[extract_features, train, convert], aliases=["fp", "pl", "pipeline"])
+@task(pre=[extract_features, train, convert, validate_tflite], aliases=["fp", "pl", "pipeline"])
 def full_pipeline(_):
     # Run the full pipeline: extract features, train the model, and convert to TFLite.
     print("Running full pipeline: extract features, train model, convert to TFLite...")

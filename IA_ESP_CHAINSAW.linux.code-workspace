@@ -12,6 +12,7 @@
             "**/.git*": true,
             "data/info.md": false,
             "data/raw/": true,
+            "data/raw_24bit/": true,
             ".pio/": true,
             "**/.vscode": true,
             "**/venv/": true,
@@ -20,6 +21,8 @@
         },
         "search.exclude": {
             "**/dataset/": true,
+            "**/data/raw/": true,
+            "**/data/raw_24bit/": true,
             "**/.pio/": true,
             "**/.vscode": true,
             "**/venv/": true,

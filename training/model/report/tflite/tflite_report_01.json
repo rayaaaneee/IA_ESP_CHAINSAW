@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-08-04T19:35:05.720440+00:00",
+  "feature_config": {
+    "sample_rate": 8000,
+    "window_seconds": 2.0,
+    "hop_seconds": 1.0,
+    "n_mfcc": 20,
+    "n_mels": 32,
+    "fft_length": 1024,
+    "hop_length": 256
+  },
+  "dataset_size": 5963,
+  "train_size": 3590,
+  "validation_size": 1190,
+  "test_size": 1183,
+  "keras_model_path": "C:\\Users\\rayan\\Documents\\BOG\\IA_ESP_CHAINSAW\\training\\model\\model.h5",
+  "tflite_model_path": "C:\\Users\\rayan\\Documents\\BOG\\IA_ESP_CHAINSAW\\training\\model\\model.tflite",
+  "reference_training_report": "C:\\Users\\rayan\\Documents\\BOG\\IA_ESP_CHAINSAW\\training\\model\\report\\training_report_04.json",
+  "keras_validation_metrics": {
+    "loss": 0.07145523279905319,
+    "accuracy": 0.9764705896377563,
+    "precision": 0.9418960213661194,
+    "recall": 0.9716088175773621,
+    "auc": 0.9931127429008484,
+    "true_positives": 308.0,
+    "true_negatives": 854.0,
+    "false_positives": 19.0,
+    "false_negatives": 9.0
+  },
+  "keras_test_metrics": {
+    "loss": 0.14777196943759918,
+    "accuracy": 0.963651716709137,
+    "precision": 0.949999988079071,
+    "recall": 0.9105431437492371,
+    "auc": 0.9848482012748718,
+    "true_positives": 285.0,
+    "true_negatives": 855.0,
+    "false_positives": 15.0,
+    "false_negatives": 28.0
+  },
+  "tflite_validation_metrics": {
+    "loss": 0.07120859622955322,
+    "accuracy": 0.9764705882352941,
+    "precision": 0.9418960244648318,
+    "recall": 0.9716088328075709,
+    "auc": 0.993132472038269,
+    "true_positives": 308,
+    "true_negatives": 854,
+    "false_positives": 19,
+    "false_negatives": 9
+  },
+  "tflite_test_metrics": {
+    "loss": 0.1438315510749817,
+    "accuracy": 0.9636517328825022,
+    "precision": 0.95,
+    "recall": 0.9105431309904153,
+    "auc": 0.9848482012748718,
+    "true_positives": 285,
+    "true_negatives": 855,
+    "false_positives": 15,
+    "false_negatives": 28
+  },
+  "metric_deltas": {
+    "validation": {
+      "loss_delta": -0.0002466365694999695,
+      "accuracy_delta": -1.4024622574382306e-09,
+      "precision_delta": 3.098712397786585e-09,
+      "recall_delta": 1.5230208871841455e-08,
+      "auc_delta": 1.9729137420654297e-05
+    },
+    "test": {
+      "loss_delta": -0.003940418362617493,
+      "accuracy_delta": 1.617336520265411e-08,
+      "precision_delta": 1.1920928910669204e-08,
+      "recall_delta": -1.2758821776870377e-08,
+      "auc_delta": 0.0
+    }
+  },
+  "prediction_deltas": {
+    "validation": {
+      "mean_abs_probability_diff": 0.0003161042113788426,
+      "max_abs_probability_diff": 0.021914422512054443,
+      "prediction_mismatch_count": 0
+    },
+    "test": {
+      "mean_abs_probability_diff": 0.00023860897636041045,
+      "max_abs_probability_diff": 0.02185693383216858,
+      "prediction_mismatch_count": 0
+    }
+  }
+}
