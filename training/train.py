@@ -16,7 +16,7 @@ from extract_features import (DATASET_ROOT, DEFAULT_MANIFEST_PATH,
 from train import MODEL_PATH, REPORT_DIR
 from train.feature_pipeline import (compute_class_weight,
                                     load_or_build_feature_cache,
-                                    load_sample_groups, serialize_metrics,
+                                    load_sample_assignments, serialize_metrics,
                                     stratified_group_split)
 
 
@@ -44,9 +44,9 @@ def main() -> None:
 	args = parser.parse_args()
 
 	features, labels, config = load_or_build_feature_cache(args.dataset, args.cache, args.manifest, force_extract=args.force_extract, no_extract=args.no_extract)
-	groups = load_sample_groups(args.manifest, labels.size)
+	groups, strata = load_sample_assignments(args.manifest, labels.size)
 	# Split dataset with stratification and then show label distributions for debug
-	x_train, y_train, x_validation, y_validation, x_test, y_test = stratified_group_split(features, labels, groups, seed=args.seed)
+	x_train, y_train, x_validation, y_validation, x_test, y_test = stratified_group_split(features, labels, groups, strata, seed=args.seed)
 
 	print("Label distribution after split:")
 	print(" - train:", dict(Counter(y_train)))

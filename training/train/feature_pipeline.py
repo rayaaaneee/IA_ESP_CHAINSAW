@@ -267,4 +267,13 @@ def predict_tflite_probabilities(interpreter, features: np.ndarray) -> np.ndarra
         interpreter.invoke()
 
         output_data = interpreter.get_tensor(output_index)
-        if ou
+        if output_dtype == np.float32:
+            output_value = np.asarray(output_data, dtype=np.float32)
+        elif output_scale != 0:
+            output_value = (np.asarray(output_data, dtype=np.float32) - output_zero_point) * output_scale
+        else:
+            output_value = np.asarray(output_data, dtype=np.float32)
+
+        probabilities.append(float(output_value.reshape(-1)[0]))
+
+    return np.asarray(probabilities, dtype=np.float32)

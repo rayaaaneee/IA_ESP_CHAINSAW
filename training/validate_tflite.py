@@ -18,7 +18,7 @@ from train import MODEL_PATH, REPORT_DIR
 from train.feature_pipeline import (compare_metrics, compute_binary_metrics,
                                     compute_class_weight,
                                     load_or_build_feature_cache,
-                                    load_sample_groups,
+                                    load_sample_assignments,
                                     predict_tflite_probabilities,
                                     serialize_metrics, stratified_group_split,
                                     summarize_predictions)
@@ -78,11 +78,12 @@ def main() -> int:
 		force_extract=args.force_extract,
 		no_extract=args.no_extract,
 	)
-	groups = load_sample_groups(args.manifest, labels.size)
+	groups, strata = load_sample_assignments(args.manifest, labels.size)
 	x_train, y_train, x_validation, y_validation, x_test, y_test = stratified_group_split(
 		features,
 		labels,
 		groups,
+		strata,
 		seed=args.seed,
 	)
 	keras_model = AIModel()

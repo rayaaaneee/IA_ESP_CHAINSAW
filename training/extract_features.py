@@ -14,7 +14,7 @@ DATASET_ROOT = Path(__file__).resolve().parent / "data" / "raw"
 DEFAULT_OUTPUT_PATH = Path(__file__).resolve().parent / "data" / "processed" / "feature_dataset.npz"
 DEFAULT_MANIFEST_PATH = Path(__file__).resolve().parent / "data" /  "processed" / "feature_dataset_manifest.json"
 
-LABEL_RULE_VERSION = 2
+LABEL_RULE_VERSION = 3
 
 # Keywords for automatic label inference based on dataset structure.
 # Labels are resolved from paths relative to the dataset root so the workspace name never affects classification.
@@ -63,6 +63,14 @@ def infer_label(audio_path: Path, dataset_root: Path) -> tuple[int, str]:
     raise ValueError(
         f"Unable to infer label for {audio_path}; please update POSITIVE_TOKENS/NEGATIVE_TOKENS or dataset layout"
     )
+
+
+def infer_subgroup(audio_path: Path, dataset_root: Path) -> str:
+    relative_path = audio_path.relative_to(dataset_root)
+    subgroup = relative_path.parent.as_posix()
+    if subgroup == "." or not subgroup:
+        return relative_path.stem.lower()
+    return subgroup
 
 
 def compute_dataset_signature(dataset_root: Path) -> str:
@@ -186,6 +194,7 @@ def build_feature_dataset(dataset_root: Path, config: FeatureConfig) -> tuple[np
     for audio_path in audio_files:
         final_label, label_source = infer_label(audio_path, dataset_root)
         relative_path = audio_path.relative_to(dataset_root)
+        subgroup = infer_subgroup(audio_path, dataset_root)
 
         signal = load_audio(audio_path, config)
         windows = list(iter_windows(signal, config))
@@ -197,6 +206,7 @@ def build_feature_dataset(dataset_root: Path, config: FeatureConfig) -> tuple[np
         manifest_entry: dict[str, object] = {
             "file": str(relative_path),
             "group": relative_path.as_posix(),
+            "subgroup": subgroup,
             "label": int(final_label),
             "label_source": label_source,
             "windows": len(windows),
