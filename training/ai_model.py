@@ -95,7 +95,7 @@ class AIModel:
             return probabilities
         return (probabilities >= threshold).astype(np.int32)
 
-    def evaluate(self, data: Any, labels: Any, verbose: int = 0) -> dict[str, float]:
+    def evaluate(self, data: Any, labels: Any, verbose: int = 0, threshold: float = 0.5) -> dict[str, float]:
         if self.model is None:
             raise RuntimeError("Model isn't initialized.")
 
@@ -104,7 +104,7 @@ class AIModel:
         scores = self.model.evaluate(x_eval, y_eval, verbose=verbose, return_dict=True)
 
         probabilities = self.model.predict(x_eval, verbose=0).reshape(-1)
-        predictions = (probabilities >= 0.5).astype(np.int32)
+        predictions = (probabilities >= threshold).astype(np.int32)
         truth = y_eval.astype(np.int32)
 
         tp = int(np.sum((predictions == 1) & (truth == 1)))
@@ -138,9 +138,6 @@ class AIModel:
     def postprocess_data(self, data: Any, threshold: float = 0.5) -> np.ndarray:
         probabilities = np.asarray(data, dtype=np.float32).reshape(-1)
         return (probabilities >= threshold).astype(np.int32)
-
-    # def visualize_results(self, results: Any) -> None:
-    #     raise NotImplementedError("La visualisation n'est pas encore implémentée.")
 
     # def optimize_hyperparameters(self, data: Any) -> None:
     #     raise NotImplementedError("L'optimisation d'hyperparamètres n'est pas encore implémentée.")

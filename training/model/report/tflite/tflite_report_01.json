@@ -13,6 +13,7 @@
   "train_size": 3590,
   "validation_size": 1190,
   "test_size": 1183,
+  "threshold": 0.5,
   "keras_model_path": "C:\\Users\\rayan\\Documents\\BOG\\IA_ESP_CHAINSAW\\training\\model\\model.h5",
   "tflite_model_path": "C:\\Users\\rayan\\Documents\\BOG\\IA_ESP_CHAINSAW\\training\\model\\model.tflite",
   "reference_training_report": "C:\\Users\\rayan\\Documents\\BOG\\IA_ESP_CHAINSAW\\training\\model\\report\\training_report_04.json",

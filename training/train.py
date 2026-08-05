@@ -36,6 +36,7 @@ def main() -> None:
 	parser.add_argument("--cache", type=Path, default=DEFAULT_OUTPUT_PATH, help="Path to the extracted feature cache")
 	parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST_PATH, help="Path to the feature manifest")
 	parser.add_argument("--model", type=Path, default=MODEL_PATH, help="Path to the output Keras model")
+	parser.add_argument("--threshold", type=float, default=0.5, help="Detection threshold used to compute discrete metrics")
 	parser.add_argument("--no-extract", action="store_true", help="Do not extract features: fail if cache/manifest are missing or inconsistent")
 	parser.add_argument("--force-extract", action="store_true", help="Force re-extraction of features even if cache/manifest exist")
 	parser.add_argument("--epochs", type=int, default=25)
@@ -75,8 +76,8 @@ def main() -> None:
 		callbacks=callbacks,
 	)
 
-	validation_metrics = serialize_metrics(model.evaluate(x_validation, y_validation))
-	test_metrics = serialize_metrics(model.evaluate(x_test, y_test))
+	validation_metrics = serialize_metrics(model.evaluate(x_validation, y_validation, threshold=args.threshold))
+	test_metrics = serialize_metrics(model.evaluate(x_test, y_test, threshold=args.threshold))
 
 	model.save_model(args.model)
 
@@ -89,6 +90,7 @@ def main() -> None:
 				"train_size": int(y_train.size),
 				"validation_size": int(y_validation.size),
 				"test_size": int(y_test.size),
+				"threshold": float(args.threshold),
 				"class_weight": class_weight,
 				"history": {key: [float(value) for value in values] for key, values in history.history.items()},
 				"validation_metrics": validation_metrics,
@@ -102,6 +104,7 @@ def main() -> None:
 	)
 
 	print(f"Model successfully trained and saved to {args.model}")
+	print(f"Detection threshold: {args.threshold}")
 	print(f"Training history: {history.history}")
 	print(f"Validation: {validation_metrics}")
 	print(f"Test: {test_metrics}")

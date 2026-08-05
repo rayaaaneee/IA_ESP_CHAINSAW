@@ -52,9 +52,16 @@ def convert(c):
 @task(aliases=["vt", "v-tflite", "v-lite", "vtflite", "v-tfl", "vtfl", "vlite"])
 def validate_tflite(c):
     # Validate the generated TensorFlow Lite model by running inference on a sample input.
-    print("Validating TFLite model, comparing results and generating report...")
     with c.cd(TRAINING):
+        print("Validating TFLite model with different thresholds, comparing results and generating report...")
+        print("\nRunning validation with threshold=0.5...")
         c.run(f'"{PYTHON}" validate_tflite.py')
+        print("\nRunning validation with threshold=0.6...")
+        c.run(f'"{PYTHON}" validate_tflite.py --threshold=0.6')
+        print("\nRunning validation with threshold=0.4...")
+        c.run(f'"{PYTHON}" validate_tflite.py --threshold=0.4')
+        print("\nRunning validation with threshold=0.3...")
+        c.run(f'"{PYTHON}" validate_tflite.py --threshold=0.3')
 
 @task(aliases=["b"])
 def build(c):
