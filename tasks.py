@@ -130,7 +130,14 @@ def labels(c):
     with c.cd(TRAINING):
         c.run(f'"{PYTHON}" check.py --labels')
 
-@task(pre=[extract_features, train, convert, validate_tflite], aliases=["fp", "pl", "pipeline"])
+@task(aliases=["firmware", "gf"])
+def generate_firmware(c):
+    # Generate the necessary C++ files for the firmware, including DSP constants, feature config, and inference model.
+    print("Generating firmware C++/H files...")
+    with c.cd(TRAINING):
+        c.run(f'"{PYTHON}" generate_firmware.py')
+
+@task(pre=[extract_features, train, convert, validate_tflite, generate_firmware], aliases=["fp", "pl", "pipeline"])
 def full_pipeline(_):
     # Run the full pipeline: extract features, train the model, and convert to TFLite.
     print("Full pipeline has been run: extract features, train model, convert to TFLite...")

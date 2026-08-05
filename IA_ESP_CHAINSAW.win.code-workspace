@@ -9,6 +9,7 @@
         "python.defaultInterpreterPath": "${workspaceFolder}/venv/Scripts/python.exe",
         "python.terminal.activateEnvironment": true,
         "files.exclude": {
+            "**/__pycache__": true,
             "**/.git*": true,
             "data/info.md": false,
             "data/raw/": true,
@@ -17,7 +18,8 @@
             "**/.vscode": true,
             "**/venv/": true,
             "**/training/": true,
-            "**/firmware/": true
+            "**/firmware/": true,
+            "**/training/firmware/": false
         },
         "search.exclude": {
             "**/dataset/": true,

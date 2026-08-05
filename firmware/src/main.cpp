@@ -10,6 +10,7 @@
 
 #include "model/inference.h"
 #include "app/config.h"
+#include "drivers/audio.h"
 
 // PINS Definitions
 #ifndef PINS
@@ -53,30 +54,58 @@ void setup() {
   output = interpreter->output(0);
 
   Serial.println("IA Model loaded and ready for inference.");
+
+  if (interpreter->AllocateTensors() != kTfLiteOk) {
+    Serial.println("Error: Unable to allocate tensors!");
+    while (1); 
+  }
+
+  init_audio();
+  
+  // Affiche la taille exacte calculée par le planificateur de mémoire
+  Serial.printf("Taille strictement necessaire pour l'arene : %d octets\n", interpreter->arena_used_bytes());
 }
 
-void loop() {
-  AUDIO_CONFIG.sample_rate;
-  // 1. Remplir le tenseur d'entrée (input) avec tes caractéristiques audio (MFCC)
+// Variables globales à rajouter en haut de ton fichier (avant le setup)
+// La taille dépend de ta config : 2 secondes * 8000 Hz = 16000 échantillons
+constexpr int AUDIO_BUFFER_SIZE = 16000;
+int16_t audio_buffer[AUDIO_BUFFER_SIZE]; 
 
-  /* 
-  Exemple de remplissage lorsque tu auras ton extraction audio :
+// La taille de ton tableau MFCC dépend de la sortie de ton script Python
+// Exemple : 20 coefficients sur X trames temporelles.
+float tableau_mfcc[1000]; // Ajuste la taille selon l'architecture de ton modèle
+
+void loop() {
+  // 1. Acquisition audio (Bloquant jusqu'à ce que le buffer soit plein, ou via DMA)
+  // Il faut acquérir 2 secondes d'audio à 8000 Hz.
+  bool audio_ready = record_audio(audio_buffer, AUDIO_BUFFER_SIZE);
+  
+  if (!audio_ready) {
+    return; // On attend d'avoir suffisamment de données
+  }
+
+  // 2. Extraction des caractéristiques (DSP)
+  // C'est ici que tu appelles arduinoFFT pour transformer l'audio brut en MFCC
+  extract_features_from_audio(audio_buffer, tableau_mfcc);
+
+  // 3. Remplissage du tenseur d'entrée
+  const int taille_entree = input->bytes / sizeof(float);
+  
+  // Vérification de sécurité pour éviter un débordement de mémoire (Buffer Overflow)
+  // Assure-toi que ton tableau_mfcc généré fait bien la même taille que l'entrée attendue
   for (int i = 0; i < taille_entree; i++) {
     input->data.f[i] = tableau_mfcc[i]; 
   }
-  */
 
-  // 2. Exécuter l'inférence
+  // 4. Exécuter l'inférence
   if (interpreter->Invoke() != kTfLiteOk) {
-    Serial.println("Erreur: Échec de l'inférence !");
+    Serial.println("Erreur: L'inférence a échoué !");
     return;
   }
 
-  // 3. Lire le résultat de la prédiction (neurone de sortie unique, activation Sigmoïde)
+  // 5. Lire le résultat de la prédiction
   float prob_tronconneuse = output->data.f[0];
+  Serial.printf("Probabilité Tronçonneuse : %f\n", prob_tronconneuse);
 
-  Serial.print("Probabilité Tronçonneuse : ");
-  Serial.println(prob_tronconneuse);
-
-  delay(1000);
+  // Pas de delay(1000) ici ! On repart immédiatement enregistrer la trame suivante.
 }
