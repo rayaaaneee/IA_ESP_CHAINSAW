@@ -1,11 +1,15 @@
 #include <Arduino.h>
+
 #include <RadioLib.h>
 #include <arduinoFFT.h>
+
 #include <tensorflow/lite/micro/all_ops_resolver.h>
 #include <tensorflow/lite/micro/micro_interpreter.h>
 #include <tensorflow/lite/micro/micro_error_reporter.h>
 #include <tensorflow/lite/schema/schema_generated.h>
+
 #include "model/inference.h"
+#include "app/config.h"
 
 // PINS Definitions
 #ifndef PINS
@@ -41,18 +45,20 @@ void setup() {
   interpreter = &static_interpreter;
 
   if (interpreter->AllocateTensors() != kTfLiteOk) {
-    Serial.println("Erreur: Impossible d'allouer la Tensor Arena !");
+    Serial.println("Error: Unable to allocate tensors!");
     while (1); 
   }
 
   input = interpreter->input(0);
   output = interpreter->output(0);
 
-  Serial.println("Modèle IA chargé et prêt à l'emploi !");
+  Serial.println("IA Model loaded and ready for inference.");
 }
 
 void loop() {
+  AUDIO_CONFIG;
   // 1. Remplir le tenseur d'entrée (input) avec tes caractéristiques audio (MFCC)
+  
   /* 
   Exemple de remplissage lorsque tu auras ton extraction audio :
   for (int i = 0; i < taille_entree; i++) {
