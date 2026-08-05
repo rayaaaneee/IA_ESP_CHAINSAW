@@ -4,8 +4,6 @@ import tensorflow as tf
 
 from train import MODEL_PATH, TFLITE_MODEL_PATH
 
-MODEL_CPP_PATH = Path(__file__).resolve().parent.parent / "firmware" / "src" / "model" / "inference.cpp"
-
 # Load the trained Keras/TensorFlow pretrained model
 model = tf.keras.models.load_model(MODEL_PATH)
 
@@ -21,22 +19,4 @@ tflite_model = converter.convert()
 with open(TFLITE_MODEL_PATH, 'wb') as f:
     f.write(tflite_model)
 
-# Convert the .tflite model to a C array and write it to model.h
-# This code writes the model data as a C array in a header file for use in embedded systems like ESP32.
-def hex_to_c_array(hex_data, var_name):
-    c_str = f"alignas(8) const uint8_t {var_name}[] = {{"
-    for i, byte in enumerate(hex_data):
-        if i % 12 == 0: c_str += "\n  "
-        c_str += f"0x{byte:02x}, "
-    c_str = c_str[:-2] + "\n};"
-    return c_str
-
-# Generate the content of the .cpp file (DEFINITION)
-cpp_content = '#include "model/inference.h"\n\n'
-cpp_content += hex_to_c_array(tflite_model, "g_model_data")
-cpp_content += f"\n\nconst uint32_t g_model_data_len = {len(tflite_model)};\n"
-
-with open(MODEL_CPP_PATH, 'w') as f:
-    f.write(cpp_content)
-
-print("Model successfully converted to TensorFlow Lite format and saved to model.tflite and inference.cpp.")
+print("Model successfully converted to TensorFlow Lite format.")
