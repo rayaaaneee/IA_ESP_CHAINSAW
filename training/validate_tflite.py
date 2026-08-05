@@ -10,15 +10,11 @@ from pathlib import Path
 
 from extract_features import (DATASET_ROOT, DEFAULT_MANIFEST_PATH,
                               DEFAULT_OUTPUT_PATH)
-from train import MODEL_PATH, TFLITE_MODEL_PATH, REPORT_DIR
-from train.feature_pipeline import (compare_metrics, compute_binary_metrics,
-                                    compute_class_weight,
-                                    load_or_build_feature_cache,
-                                    load_sample_assignments,
-                                    predict_tflite_probabilities,
-                                    serialize_metrics, stratified_group_split,
-                                    summarize_predictions)
-
+from train import (MODEL_PATH, REPORT_DIR, TFLITE_MODEL_PATH, compare_metrics,
+                   compute_binary_metrics, compute_class_weight,
+                   load_or_build_feature_cache, load_sample_assignments,
+                   predict_tflite_probabilities, serialize_metrics,
+                   stratified_group_split, summarize_predictions)
 
 
 def next_index(report_dir: Path, prefix: str = "tflite_report") -> int:
