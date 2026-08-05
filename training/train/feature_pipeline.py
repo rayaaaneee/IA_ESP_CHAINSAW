@@ -8,9 +8,10 @@ from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.utils.class_weight import \
     compute_class_weight as skl_compute_class_weight
 
-from extract_features import (LABEL_RULE_VERSION, FeatureConfig,
-                              build_feature_dataset, compute_dataset_signature,
-                              save_feature_dataset)
+from extract_features import (LABEL_RULE_VERSION, build_feature_dataset,
+                              compute_dataset_signature, save_feature_dataset)
+
+from .config import FeatureConfig
 
 
 def load_or_build_feature_cache(

@@ -27,7 +27,6 @@ def next_index() -> int:
 
 REPORT_PATH = REPORT_DIR / f"training_report_{next_index():02d}.json"
 
-
 def main() -> None:
 	parser = argparse.ArgumentParser(description="Train the chainsaw detection model.")
 	parser.add_argument("--dataset", type=Path, default=DATASET_ROOT, help="Path to the WAV dataset root")

@@ -1,4 +1,4 @@
-from extract_features import FeatureConfig
+from train import FeatureConfig
 
 from .globals import FIRMWARE_DIR
 

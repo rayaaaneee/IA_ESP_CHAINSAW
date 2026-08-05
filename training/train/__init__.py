@@ -1,3 +1,4 @@
+from .config import FeatureConfig
 from .feature_pipeline import *
 from .globals import *
 
@@ -5,6 +6,7 @@ __all__ = [
     "TFLITE_MODEL_PATH",
     "MODEL_PATH", 
     "REPORT_DIR",
+    "FeatureConfig",
     "compute_class_weight",
     "load_or_build_feature_cache",
     "load_sample_assignments",

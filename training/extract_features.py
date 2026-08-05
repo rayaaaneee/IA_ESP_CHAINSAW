@@ -3,12 +3,14 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from dataclasses import asdict, dataclass
+from dataclasses import asdict
 from pathlib import Path
 from typing import Iterable
 
 import librosa
 import numpy as np
+
+from train import FeatureConfig
 
 DATASET_ROOT = Path(__file__).resolve().parent / "data" / "raw"
 DEFAULT_OUTPUT_PATH = Path(__file__).resolve().parent / "data" / "processed" / "feature_dataset.npz"
@@ -32,18 +34,6 @@ NEGATIVE_TOKENS = (
     "ambience",
     "ambient",
 )
-
-
-@dataclass(frozen=True)
-class FeatureConfig:
-    sample_rate: int = 8_000
-    window_seconds: float = 2.0
-    hop_seconds: float = 1.0
-    n_mfcc: int = 20
-    n_mels: int = 32
-    fft_length: int = 1024
-    hop_length: int = 256
-
 
 def infer_label(audio_path: Path, dataset_root: Path) -> tuple[int, str]:
     relative_path = audio_path.relative_to(dataset_root)
