@@ -2,14 +2,11 @@ from pathlib import Path
 
 import tensorflow as tf
 
-from train import MODEL_PATH
-
-MODEL_OUT_PATH = Path(__file__).resolve().parent / "model" / "model.tflite"
+from train import MODEL_PATH, TFLITE_MODEL_PATH
 
 MODEL_CPP_PATH = Path(__file__).resolve().parent.parent / "firmware" / "src" / "model" / "inference.cpp"
 
-# Load the trained Keras/TensorFlow pretrained model 
-
+# Load the trained Keras/TensorFlow pretrained model
 model = tf.keras.models.load_model(MODEL_PATH)
 
 # Convert the model to TensorFlow Lite format
@@ -21,7 +18,7 @@ converter.optimizations = [tf.lite.Optimize.DEFAULT]
 tflite_model = converter.convert()
 
 # Save the TensorFlow Lite model to a .tflite file
-with open(MODEL_OUT_PATH, 'wb') as f:
+with open(TFLITE_MODEL_PATH, 'wb') as f:
     f.write(tflite_model)
 
 # Convert the .tflite model to a C array and write it to model.h

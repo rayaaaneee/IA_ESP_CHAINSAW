@@ -8,11 +8,9 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-import numpy as np
-
 from extract_features import (DATASET_ROOT, DEFAULT_MANIFEST_PATH,
                               DEFAULT_OUTPUT_PATH)
-from train import REPORT_DIR
+from train import MODEL_PATH, TFLITE_MODEL_PATH, REPORT_DIR
 from train.feature_pipeline import (compare_metrics, compute_binary_metrics,
                                     compute_class_weight,
                                     load_or_build_feature_cache,
@@ -21,8 +19,7 @@ from train.feature_pipeline import (compare_metrics, compute_binary_metrics,
                                     serialize_metrics, stratified_group_split,
                                     summarize_predictions)
 
-TFLITE_MODEL_PATH = Path(__file__).resolve().parent / "model" / "model.tflite"
-KERAS_MODEL_PATH = Path(__file__).resolve().parent / "model" / "model.h5"
+
 
 def next_index(report_dir: Path, prefix: str = "tflite_report") -> int:
 	existing_reports = list((report_dir / "tflite").glob(f"{prefix}_*.json"))
@@ -99,7 +96,7 @@ def main() -> int:
 	parser.add_argument("--dataset", type=Path, default=DATASET_ROOT, help="Path to the WAV dataset root")
 	parser.add_argument("--cache", type=Path, default=DEFAULT_OUTPUT_PATH, help="Path to the extracted feature cache")
 	parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST_PATH, help="Path to the feature manifest")
-	parser.add_argument("--keras-model", type=Path, default=KERAS_MODEL_PATH, help="Path to the trained Keras model")
+	parser.add_argument("--keras-model", type=Path, default=MODEL_PATH, help="Path to the trained Keras model")
 	parser.add_argument("--tflite-model", type=Path, default=TFLITE_MODEL_PATH, help="Path to the converted TFLite model")
 	parser.add_argument("--report-dir", type=Path, default=REPORT_DIR, help="Directory where the validation report will be saved")
 	parser.add_argument("--threshold", type=float, default=0.5, help="Detection threshold used to compute discrete metrics")

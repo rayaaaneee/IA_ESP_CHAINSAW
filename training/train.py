@@ -12,7 +12,7 @@ import tensorflow as tf
 
 from ai_model import AIModel
 from extract_features import (DATASET_ROOT, DEFAULT_MANIFEST_PATH,
-                              DEFAULT_OUTPUT_PATH, FeatureConfig)
+                              DEFAULT_OUTPUT_PATH)
 from train import MODEL_PATH, REPORT_DIR
 from train.feature_pipeline import (compute_class_weight,
                                     load_or_build_feature_cache,
