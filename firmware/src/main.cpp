@@ -56,9 +56,9 @@ void setup() {
 }
 
 void loop() {
-  AUDIO_CONFIG;
+  AUDIO_CONFIG.sample_rate;
   // 1. Remplir le tenseur d'entrée (input) avec tes caractéristiques audio (MFCC)
-  
+
   /* 
   Exemple de remplissage lorsque tu auras ton extraction audio :
   for (int i = 0; i < taille_entree; i++) {
