@@ -13,9 +13,11 @@ import tensorflow as tf
 from ai_model import AIModel
 from extract_features import (DATASET_ROOT, DEFAULT_MANIFEST_PATH,
                               DEFAULT_OUTPUT_PATH)
-from train import (MODEL_PATH, REPORT_DIR, compute_class_weight,
-                   load_or_build_feature_cache, load_sample_assignments,
-                   serialize_metrics, stratified_group_split)
+from train.feature_pipeline import (compute_class_weight,
+                                    load_or_build_feature_cache,
+                                    load_sample_assignments, serialize_metrics,
+                                    stratified_group_split)
+from train.globals import MODEL_PATH, REPORT_DIR
 
 
 def next_index() -> int:

@@ -10,7 +10,7 @@ from typing import Iterable
 import librosa
 import numpy as np
 
-from train import FeatureConfig
+from train.config import FeatureConfig
 
 DATASET_ROOT = Path(__file__).resolve().parent / "data" / "raw"
 DEFAULT_OUTPUT_PATH = Path(__file__).resolve().parent / "data" / "processed" / "feature_dataset.npz"

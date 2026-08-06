@@ -5,6 +5,7 @@
 #include <cstdint>
 
 #include <tensorflow/lite/c/common.h>
+#include <tensorflow/lite/micro/micro_interpreter.h>
 
 namespace debug {
     
@@ -16,6 +17,15 @@ namespace debug {
 
     // Prints debug information about the TensorFlow Lite tensor, including its type, dimensions, and first few values.
     bool print_tensor_debug(const TfLiteTensor* tensor);
+
+    // Runs inference on the provided feature vector and prints the verdict.
+    bool run_model_debug(tflite::MicroInterpreter* interpreter,
+                         TfLiteTensor* input,
+                         TfLiteTensor* output,
+                         const float* features,
+                         size_t size,
+                         float threshold,
+                         const char* label);
 
 }  // namespace debug
 

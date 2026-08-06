@@ -78,4 +78,47 @@ bool print_tensor_debug(const TfLiteTensor* tensor) {
 
   return true;
 }
+
+bool run_model_debug(tflite::MicroInterpreter* interpreter,
+                     TfLiteTensor* input,
+                     TfLiteTensor* output,
+                     const float* features,
+                     size_t size,
+                     float threshold,
+                     const char* label) {
+  if (interpreter == nullptr || input == nullptr || output == nullptr || features == nullptr) {
+    Serial.println("Debug: invalid model pointers.");
+    return false;
+  }
+
+  const int input_size = input->bytes / static_cast<int>(sizeof(float));
+  if (input_size != static_cast<int>(size)) {
+    Serial.printf("%s: unexpected input size (%d, expected %u).\n", label, input_size, static_cast<unsigned>(size));
+    return false;
+  }
+
+  if (input->type != kTfLiteFloat32 || output->type != kTfLiteFloat32) {
+    Serial.printf("%s: model tensors are not float32.\n", label);
+    return false;
+  }
+
+  for (int index = 0; index < input_size; ++index) {
+    input->data.f[index] = features[index];
+  }
+
+  if (interpreter->Invoke() != kTfLiteOk) {
+    Serial.printf("%s: inference failed.\n", label);
+    return false;
+  }
+
+  const float probability = output->data.f[0];
+  if (!std::isfinite(probability)) {
+    Serial.printf("%s: output probability is invalid -> %.6f\n", label, probability);
+    return false;
+  }
+
+  const bool detected = probability >= threshold;
+  Serial.printf("%s: chainsaw probability = %.6f | verdict: %s\n", label, probability, detected ? "CHAINSAW DETECTED" : "NO CHAINSAW");
+  return true;
+}
 }  // namespace debug
