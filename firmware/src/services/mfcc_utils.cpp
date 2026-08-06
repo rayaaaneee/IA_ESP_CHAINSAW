@@ -5,20 +5,6 @@ namespace mfcc_utils {
     float g_delta_coeffs[kDeltaWindow];
     float g_delta2_coeffs[kDeltaWindow];
     bool g_initialized = false;
-    float g_signal[kAudioWindowSamples];
-    float g_frame_real[kFftLength];
-    float g_frame_imag[kFftLength];
-    float g_magnitude[kFftBins];
-    float g_mel_energies[kMelCount][FEATURE_FRAME_COUNT];
-    float g_mel_db[kMelCount][FEATURE_FRAME_COUNT];
-    float g_mfcc_matrix[kMfccCount][FEATURE_FRAME_COUNT];
-    float g_delta_matrix[kMfccCount][FEATURE_FRAME_COUNT];
-    float g_delta2_matrix[kMfccCount][FEATURE_FRAME_COUNT];
-    float g_centroid[FEATURE_FRAME_COUNT];
-    float g_bandwidth[FEATURE_FRAME_COUNT];
-    float g_rolloff[FEATURE_FRAME_COUNT];
-    float g_zcr[FEATURE_FRAME_COUNT];
-    float g_rms[FEATURE_FRAME_COUNT];
 
     float hann_window(size_t index, size_t size) {
         return 0.5f - 0.5f * cosf((2.0f * PI * static_cast<float>(index)) / static_cast<float>(size));
@@ -141,30 +127,6 @@ namespace mfcc_utils {
             }
             return;
         }
-    }
-
-    float compute_mean(const float* values, size_t count) {
-        double sum = 0.0;
-        for (size_t index = 0; index < count; ++index) {
-            sum += values[index];
-        }
-        return static_cast<float>(sum / static_cast<double>(count));
-    }
-
-    float compute_std(const float* values, size_t count, float mean) {
-        double sum = 0.0;
-        for (size_t index = 0; index < count; ++index) {
-            const double delta = static_cast<double>(values[index]) - static_cast<double>(mean);
-            sum += delta * delta;
-        }
-        return static_cast<float>(sqrt(sum / static_cast<double>(count)));
-    }
-
-    void append_summary(float* features, size_t& write_index, const float* values, size_t count) {
-        const float mean = compute_mean(values, count);
-        const float std = compute_std(values, count, mean);
-        features[write_index++] = mean;
-        features[write_index++] = std;
     }
 
     void compute_delta_series(const float* source, int num_coeffs, int num_frames, const float* coeffs, float* destination) {
