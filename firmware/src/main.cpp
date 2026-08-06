@@ -17,8 +17,8 @@ tflite::MicroInterpreter* interpreter = nullptr;
 TfLiteTensor* input = nullptr;
 TfLiteTensor* output = nullptr;
 
-constexpr int kTensorArenaSize = 50 * 1024;
-// Use arena_used_bytes() to check how much of the arena is actually used after AllocateTensors() is called.
+constexpr int kTensorArenaSize = 6 * 1024;
+// Use arena_used_bytes() to check how much of the arena is actually used after AllocateTensors() is called after each model change.
 alignas(16) uint8_t tensor_arena[kTensorArenaSize];
 
 constexpr size_t kAudioBufferSize = AUDIO_WINDOW_SAMPLES;
@@ -27,6 +27,7 @@ constexpr float kInferenceThreshold = DETECTION_THRESHOLD;
 int16_t audio_buffer[kAudioBufferSize];
 float feature_vector[FEATURE_VECTOR_SIZE];
 
+// OLED ssd1306 display(0x3C, 21, 22); // I2C address and pins for SDA and SCL
 void setup() {
 
     Serial.begin(115200);

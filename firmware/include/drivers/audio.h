@@ -20,5 +20,9 @@ bool record_audio(int16_t* buffer, int size);
 
 #endif // AUDIO_H
 
-/* Détail matériel critique (Ne te fais pas avoir) :
-Sur le module INMP441, tu as une broche L/R (Left/Right). Pour que la configuration I2S_CHANNEL_FMT_ONLY_LEFT de mon code fonctionne, tu dois absolument relier la broche L/R de ton micro à la masse (GND). Si tu la laisses en l'air ou la branches sur le 3.3V, les données arriveront sur le mauvais canal et ton tableau sera rempli de zéros. */
+/* Critical hardware detail:
+On the INMP441 module, there is an L/R (Left/Right) pin. For the
+I2S_CHANNEL_FMT_ONLY_LEFT configuration in this code to work, you must
+connect the microphone's L/R pin to ground (GND). If you leave it floating
+or connect it to 3.3V, the data will arrive on the wrong channel and your
+buffer will be filled with zeros. */
