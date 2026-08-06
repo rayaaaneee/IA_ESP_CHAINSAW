@@ -1,111 +1,109 @@
 #include <Arduino.h>
 
-#include <RadioLib.h>
-#include <arduinoFFT.h>
-
 #include <tensorflow/lite/micro/all_ops_resolver.h>
-#include <tensorflow/lite/micro/micro_interpreter.h>
 #include <tensorflow/lite/micro/micro_error_reporter.h>
+#include <tensorflow/lite/micro/micro_interpreter.h>
 #include <tensorflow/lite/schema/schema_generated.h>
 
-#include "model/inference.h"
 #include "app/config.h"
 #include "drivers/audio.h"
+#include "model/inference.h"
+#include "services/mfcc.h"
 
-// PINS Definitions
-#ifndef PINS
-#define PIN_EXAMPLE 1
-#endif
+bool extract_features_from_audio(const int16_t* audio_buffer, float* feature_vector, size_t feature_vector_size);
 
-// --- Variables Globales IA ---
 const tflite::Model* tflite_model = nullptr;
 tflite::MicroInterpreter* interpreter = nullptr;
 TfLiteTensor* input = nullptr;
 TfLiteTensor* output = nullptr;
 
-// La mémoire RAM allouée pour faire tourner le réseau (50 Ko ici, à ajuster si besoin)
 constexpr int kTensorArenaSize = 50 * 1024;
+// Use arena_used_bytes() to check how much of the arena is actually used after AllocateTensors() is called.
 alignas(16) uint8_t tensor_arena[kTensorArenaSize];
 
+constexpr size_t kAudioBufferSize = AUDIO_WINDOW_SAMPLES;
+constexpr float kInferenceThreshold = DETECTION_THRESHOLD;
+
+int16_t audio_buffer[kAudioBufferSize];
+float feature_vector[FEATURE_VECTOR_SIZE];
+
 void setup() {
-  Serial.begin(115200);
-  delay(2000); 
 
-  Serial.println("Initialisation de l'IA...");
+    Serial.begin(115200);
+    delay(2000);
 
-  tflite_model = tflite::GetModel(g_model_data);
+    Serial.println("Initializing the AI...");
 
-  static tflite::AllOpsResolver resolver;
+    tflite_model = tflite::GetModel(g_model_data);
 
-  static tflite::MicroErrorReporter micro_error_reporter;
-  tflite::ErrorReporter* error_reporter = &micro_error_reporter;
+    static tflite::AllOpsResolver resolver;
+    static tflite::MicroErrorReporter micro_error_reporter;
+    tflite::ErrorReporter* error_reporter = &micro_error_reporter;
 
-  static tflite::MicroInterpreter static_interpreter(
-      tflite_model, resolver, tensor_arena, kTensorArenaSize, error_reporter);
+    static tflite::MicroInterpreter static_interpreter(
+        tflite_model, resolver, tensor_arena, kTensorArenaSize, error_reporter);
 
-  interpreter = &static_interpreter;
+    interpreter = &static_interpreter;
 
-  if (interpreter->AllocateTensors() != kTfLiteOk) {
-    Serial.println("Error: Unable to allocate tensors!");
-    while (1); 
-  }
+    if (interpreter->AllocateTensors() != kTfLiteOk) {
+      Serial.println("Error: unable to allocate tensors!");
+      while (1) {
+      }
+    }
 
-  input = interpreter->input(0);
-  output = interpreter->output(0);
+    input = interpreter->input(0);
+    output = interpreter->output(0);
 
-  Serial.println("IA Model loaded and ready for inference.");
+    // Check the input tensor type and print it
+    // Code actuel correspond à l'input du modèle, qui est de type FLOAT32 (Pas de quantification)
+    Serial.print("Type attendu par le modèle : ");
+    if (input->type == kTfLiteFloat32) {
+        Serial.println("FLOAT32 (Pas de quantification)");
+    } else if (input->type == kTfLiteInt8) {
+        Serial.println("INT8 (Quantifié - Attention !)");
+    } else {
+        Serial.printf("Autre type (Code: %d)\n", input->type);
+    }
 
-  if (interpreter->AllocateTensors() != kTfLiteOk) {
-    Serial.println("Error: Unable to allocate tensors!");
-    while (1); 
-  }
+    init_audio();
+    init_feature_extractor();
 
-  init_audio();
-  
-  // Affiche la taille exacte calculée par le planificateur de mémoire
-  Serial.printf("Taille strictement necessaire pour l'arene : %d octets\n", interpreter->arena_used_bytes());
+    Serial.println("AI model loaded and ready for inference.");
+    Serial.printf("Arena used: %d bytes\n", interpreter->arena_used_bytes());
+    Serial.printf("Feature vector size: %u\n", static_cast<unsigned>(FEATURE_VECTOR_SIZE));
+    Serial.printf("Detection threshold: %.2f\n", kInferenceThreshold);
+
 }
 
-// Variables globales à rajouter en haut de ton fichier (avant le setup)
-// La taille dépend de ta config : 2 secondes * 8000 Hz = 16000 échantillons
-constexpr int AUDIO_BUFFER_SIZE = 16000;
-int16_t audio_buffer[AUDIO_BUFFER_SIZE]; 
-
-// La taille de ton tableau MFCC dépend de la sortie de ton script Python
-// Exemple : 20 coefficients sur X trames temporelles.
-float tableau_mfcc[1000]; // Ajuste la taille selon l'architecture de ton modèle
-
 void loop() {
-  // 1. Acquisition audio (Bloquant jusqu'à ce que le buffer soit plein, ou via DMA)
-  // Il faut acquérir 2 secondes d'audio à 8000 Hz.
-  bool audio_ready = record_audio(audio_buffer, AUDIO_BUFFER_SIZE);
-  
-  if (!audio_ready) {
-    return; // On attend d'avoir suffisamment de données
-  }
 
-  // 2. Extraction des caractéristiques (DSP)
-  // C'est ici que tu appelles arduinoFFT pour transformer l'audio brut en MFCC
-  extract_features_from_audio(audio_buffer, tableau_mfcc);
+    if (!record_audio(audio_buffer, static_cast<int>(kAudioBufferSize))) {
+      Serial.println("Error: unable to read audio.");
+      return;
+    }
 
-  // 3. Remplissage du tenseur d'entrée
-  const int taille_entree = input->bytes / sizeof(float);
-  
-  // Vérification de sécurité pour éviter un débordement de mémoire (Buffer Overflow)
-  // Assure-toi que ton tableau_mfcc généré fait bien la même taille que l'entrée attendue
-  for (int i = 0; i < taille_entree; i++) {
-    input->data.f[i] = tableau_mfcc[i]; 
-  }
+    if (!extract_features_from_audio(audio_buffer, feature_vector, FEATURE_VECTOR_SIZE)) {
+      Serial.println("Error: unable to extract features.");
+      return;
+    }
 
-  // 4. Exécuter l'inférence
-  if (interpreter->Invoke() != kTfLiteOk) {
-    Serial.println("Erreur: L'inférence a échoué !");
-    return;
-  }
+    const int input_size = input->bytes / static_cast<int>(sizeof(float));
+    if (input_size != static_cast<int>(FEATURE_VECTOR_SIZE)) {
+      Serial.printf("Error: unexpected input size (%d, expected %u).\n", input_size, static_cast<unsigned>(FEATURE_VECTOR_SIZE));
+      return;
+    }
 
-  // 5. Lire le résultat de la prédiction
-  float prob_tronconneuse = output->data.f[0];
-  Serial.printf("Probabilité Tronçonneuse : %f\n", prob_tronconneuse);
+    for (int index = 0; index < input_size; ++index) {
+      input->data.f[index] = feature_vector[index];
+    }
 
-  // Pas de delay(1000) ici ! On repart immédiatement enregistrer la trame suivante.
+    if (interpreter->Invoke() != kTfLiteOk) {
+      Serial.println("Error: inference failed!");
+      return;
+    }
+
+    const float probability = output->data.f[0];
+    const bool detected = is_chainsaw_detected(probability, kInferenceThreshold);
+    Serial.printf("Chainsaw probability: %.6f | verdict: %s\n", probability, detected ? "CHAINSAW DETECTED" : "NO CHAINSAW");
+
 }

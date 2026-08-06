@@ -3,7 +3,7 @@
 #include <cstdint>
 
 // TensorFlow Lite model data
-extern const uint8_t g_model_data[g_model_data_len];
+extern const uint8_t g_model_data[];
 
 // Length of the TensorFlow Lite model data
 extern const uint32_t g_model_data_len;
