@@ -54,17 +54,6 @@ void setup() {
     input = interpreter->input(0);
     output = interpreter->output(0);
 
-    // Check the input tensor type and print it
-    // Code actuel correspond à l'input du modèle, qui est de type FLOAT32 (Pas de quantification)
-    Serial.print("Type attendu par le modèle : ");
-    if (input->type == kTfLiteFloat32) {
-        Serial.println("FLOAT32 (Pas de quantification)");
-    } else if (input->type == kTfLiteInt8) {
-        Serial.println("INT8 (Quantifié - Attention !)");
-    } else {
-        Serial.printf("Autre type (Code: %d)\n", input->type);
-    }
-
     init_audio();
     init_feature_extractor();
 

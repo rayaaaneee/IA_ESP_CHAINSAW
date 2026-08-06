@@ -14,7 +14,7 @@ void init_audio() {
     };
 
     if (i2s_driver_install(I2S_PORT, &i2s_config, 0, NULL) != ESP_OK) {
-        Serial.println("Erreur fatale: Échec de l'installation du driver I2S");
+        Serial.println("Fatal error: Failed to install I2S driver");
     }
 
     const i2s_pin_config_t pin_config = {
@@ -25,7 +25,7 @@ void init_audio() {
     };
 
     if (i2s_set_pin(I2S_PORT, &pin_config) != ESP_OK) {
-        Serial.println("Erreur fatale: Échec de la configuration des pins I2S");
+        Serial.println("Fatal error: Failed to configure I2S pins");
     }
 }
 

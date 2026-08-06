@@ -1,16 +1,11 @@
 #ifndef MFCC_H
 #define MFCC_H
 
-#include <Arduino.h>
 #include <cstddef>
 #include <cstdint>
 
-#include "app/config.h"
-
-constexpr size_t AUDIO_WINDOW_SAMPLES = 16000;
-constexpr size_t FEATURE_FRAME_COUNT = 63;
-constexpr size_t FEATURE_VECTOR_SIZE = 194;
-constexpr float DETECTION_THRESHOLD = 0.5f;
+#include <Arduino.h>
+#include "services/mfcc_config.h"
 
 // Initializes the feature extractor, including building delta coefficients.
 void init_feature_extractor();

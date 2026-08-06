@@ -46,4 +46,4 @@ input_details = interpreter.get_input_details()
 print("Type de données attendu :", input_details[0]['dtype'])
 Il t'affichera <class 'numpy.float32'> ou <class 'numpy.int8'>.
 
-Mon conseil d'IA : Teste avec la Méthode 1 ou 2. Si tu découvres que ton modèle est en Int8 (ce qui est super pour la batterie et la RAM de l'ESP32 !), dis-le-moi et je te donnerai les 3 lignes de code C++ pour adapter tes variables (processus de "Quantification"). 🪚
+Mon conseil d'IA : Teste avec la Méthode 1 ou 2. Si tu découvres que ton modèle est en Int8 (ce qui est super pour la batterie et la RAM de l'ESP32 !), dis-le-moi et je te donnerai les 3 lignes de code C++ pour adapter tes variables (processus de "Quantification"). 
