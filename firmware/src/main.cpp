@@ -38,7 +38,7 @@ void setup() {
     Serial.println("Initializing the AI...");
 
     tflite_model = tflite::GetModel(g_model_data);
-    debug::print_model_tensor_types(tflite_model);
+    // debug::print_model_tensor_types(tflite_model);
 
     static tflite::AllOpsResolver resolver;
     static tflite::MicroErrorReporter micro_error_reporter;
@@ -65,8 +65,8 @@ void setup() {
     Serial.printf("Arena used: %d bytes\n", interpreter->arena_used_bytes());
     Serial.printf("Feature vector size: %u\n", static_cast<unsigned>(FEATURE_VECTOR_SIZE));
     Serial.printf("Detection threshold: %.2f\n", kInferenceThreshold);
-    debug::print_tensor_debug(input);
-    debug::print_tensor_debug(output);
+    // debug::print_tensor_debug(input);
+    // debug::print_tensor_debug(output);
 
 }
 
@@ -92,22 +92,22 @@ void loop() {
       input->data.f[index] = feature_vector[index];
     }
 
-    debug::print_audio_debug(audio_buffer, kAudioBufferSize);
-    if (!debug::print_feature_debug(feature_vector, FEATURE_VECTOR_SIZE)) {
+    // debug::print_audio_debug(audio_buffer, kAudioBufferSize);
+    /* if (!debug::print_feature_debug(feature_vector, FEATURE_VECTOR_SIZE)) {
       Serial.println("Error: invalid feature vector.");
       return;
-    }
-    debug::print_input_tensor_debug(input, 16);
+    } */
+    // debug::print_input_tensor_debug(input, 16);
 
     if (interpreter->Invoke() != kTfLiteOk) {
       Serial.println("Error: inference failed!");
       return;
     }
 
-    if (!debug::print_tensor_debug(output)) {
+    /* if (!debug::print_tensor_debug(output)) {
       Serial.println("Error: invalid model output.");
       return;
-    }
+    } */
 
     const float probability = output->data.f[0];
     const bool detected = is_chainsaw_detected(probability, kInferenceThreshold);
