@@ -6,11 +6,15 @@
 
 #include <tensorflow/lite/c/common.h>
 #include <tensorflow/lite/micro/micro_interpreter.h>
+#include <tensorflow/lite/schema/schema_generated.h>
 
 namespace debug {
 
     // Prints debug information about the audio buffer, including minimum, maximum, mean, and non-zero sample count.
     void print_audio_debug(const int16_t* buffer, size_t size);
+
+    // Prints the type of every tensor declared in the model (reveals hybrid int8/float32 quantization mismatches with TFLite Micro).
+    void print_model_tensor_types(const tflite::Model* model);
 
     // Prints debug information about the feature vector, including the first five features and checks for invalid values.
     bool print_feature_debug(const float* features, size_t size);

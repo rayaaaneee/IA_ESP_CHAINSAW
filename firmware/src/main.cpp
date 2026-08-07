@@ -18,8 +18,9 @@ tflite::MicroInterpreter* interpreter = nullptr;
 TfLiteTensor* input = nullptr;
 TfLiteTensor* output = nullptr;
 
-constexpr int kTensorArenaSize = 6 * 1024;
 // Use arena_used_bytes() to check how much of the arena is actually used after AllocateTensors() is called after each model change.
+constexpr int kTensorArenaSize = 6 * 1024;
+
 alignas(16) uint8_t tensor_arena[kTensorArenaSize];
 
 constexpr size_t kAudioBufferSize = AUDIO_WINDOW_SAMPLES;
@@ -37,6 +38,7 @@ void setup() {
     Serial.println("Initializing the AI...");
 
     tflite_model = tflite::GetModel(g_model_data);
+    debug::print_model_tensor_types(tflite_model);
 
     static tflite::AllOpsResolver resolver;
     static tflite::MicroErrorReporter micro_error_reporter;

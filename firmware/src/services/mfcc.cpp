@@ -47,8 +47,6 @@ bool extract_features_from_audio(const int16_t* audio_buffer, float* feature_vec
         return false;
     }
 
-    init_feature_extractor();
-
     constexpr int fft_length = static_cast<int>(mfcc_utils::kFftLength);
     constexpr int spectral_bins = static_cast<int>(mfcc_utils::kFftBins);
     constexpr int frame_count = static_cast<int>(FEATURE_FRAME_COUNT);

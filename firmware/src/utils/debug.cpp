@@ -64,6 +64,23 @@ bool print_feature_debug(const float* features, size_t size) {
   return !has_invalid_value;
 }
 
+void print_model_tensor_types(const tflite::Model* model) {
+  if (model == nullptr) {
+    Serial.println("Model tensor debug: model is null.");
+    return;
+  }
+
+  const auto* subgraph = model->subgraphs()->Get(0);
+  const auto* tensors = subgraph->tensors();
+
+  Serial.printf("Model tensor debug: %u tensors\n", static_cast<unsigned>(tensors->size()));
+  for (flatbuffers::uoffset_t index = 0; index < tensors->size(); ++index) {
+    const auto* tensor = tensors->Get(index);
+    const char* name = tensor->name() != nullptr ? tensor->name()->c_str() : "(unnamed)";
+    Serial.printf("  [%03u] type=%s name=%s\n", static_cast<unsigned>(index), tflite::EnumNameTensorType(tensor->type()), name);
+  }
+}
+
 void print_input_tensor_debug(const TfLiteTensor* tensor, size_t preview_count) {
   if (tensor == nullptr || tensor->type != kTfLiteFloat32 || tensor->bytes < static_cast<int>(sizeof(float))) {
     Serial.println("Input tensor debug: invalid input tensor state.");

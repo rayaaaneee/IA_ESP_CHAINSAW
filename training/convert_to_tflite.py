@@ -10,8 +10,9 @@ model = tf.keras.models.load_model(MODEL_PATH)
 # Convert the model to TensorFlow Lite format
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
 
-# Quantization for reduce model size (optional but recommended for TinyML on ESP32)
-converter.optimizations = [tf.lite.Optimize.DEFAULT]
+# No Optimize.DEFAULT: dynamic-range (hybrid int8/float32) quantization is handled
+# correctly by the desktop tf.lite.Interpreter but produced NaN output on TFLite
+# Micro/ESP32, so the model stays plain float32 to keep both runtimes consistent.
 
 tflite_model = converter.convert()
 
