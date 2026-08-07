@@ -88,6 +88,16 @@ def monitor(c):
     print("Opening serial monitor...")
     with c.cd(FIRMWARE):
         c.run(f'"{PIO}" device monitor')
+        
+@task(aliases=["wm", "save_monitor", "sm"])
+def write_monitor(c):
+    # Open the PlatformIO serial device monitor for debugging and save the output to output.txt.
+    print("Opening serial monitor and saving its output to output.txt")
+    with c.cd(FIRMWARE):
+        if IS_WIN:
+            c.run(f'powershell -Command "{PIO} device monitor | Tee-Object -FilePath output.txt"')
+        else:
+            c.run(f'"{PIO}" device monitor | tee output.txt', pty=True)
 
 @task(aliases=["p", "clean"])
 def prune(c):

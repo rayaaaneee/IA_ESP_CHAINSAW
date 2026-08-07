@@ -174,21 +174,31 @@ bool extract_features_from_audio(const int16_t* audio_buffer, float* feature_vec
         global_mel_max = mfcc_utils::kEpsilon;
     }
 
+    // matches librosa.feature.mfcc()'s internal power_to_db(..., ref=1.0): absolute scale, only the top_db floor is window-relative
+    const float global_mfcc_max_db = 10.0f * std::log10(global_mel_max);
+
     for (int frame = 0; frame < frame_count; ++frame) {
         float mfcc_frame[mfcc_utils::kMfccCount] = {};
         const float* mel_energy_row = mel_energies + (frame * mfcc_utils::kMelCount);
 
         for (int mel = 0; mel < static_cast<int>(mfcc_utils::kMelCount); ++mel) {
             float mel_energy = mel_energy_row[mel] < mfcc_utils::kEpsilon ? mfcc_utils::kEpsilon : mel_energy_row[mel];
-            float db = 10.0f * std::log10(mel_energy / global_mel_max);
-            if (db < -mfcc_utils::kTopDb) {
-                db = -mfcc_utils::kTopDb;
+
+            float mfcc_db = 10.0f * std::log10(mel_energy);
+            if (mfcc_db < global_mfcc_max_db - mfcc_utils::kTopDb) {
+                mfcc_db = global_mfcc_max_db - mfcc_utils::kTopDb;
             }
 
-            mel_stats[mel].add(db);
+            // matches extract_features.py's standalone `librosa.power_to_db(mel, ref=np.max)` used for the "mel" feature block
+            float mel_db = 10.0f * std::log10(mel_energy / global_mel_max);
+            if (mel_db < -mfcc_utils::kTopDb) {
+                mel_db = -mfcc_utils::kTopDb;
+            }
+
+            mel_stats[mel].add(mel_db);
 
             for (int mfcc = 0; mfcc < static_cast<int>(mfcc_utils::kMfccCount); ++mfcc) {
-                mfcc_frame[mfcc] += static_cast<float>(DCT_MATRIX[mfcc * mfcc_utils::kMelCount + mel]) * db;
+                mfcc_frame[mfcc] += static_cast<float>(DCT_MATRIX[mfcc * mfcc_utils::kMelCount + mel]) * mfcc_db;
             }
         }
 
