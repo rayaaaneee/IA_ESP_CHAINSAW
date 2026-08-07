@@ -64,6 +64,39 @@ bool print_feature_debug(const float* features, size_t size) {
   return !has_invalid_value;
 }
 
+void print_input_tensor_debug(const TfLiteTensor* tensor, size_t preview_count) {
+  if (tensor == nullptr || tensor->type != kTfLiteFloat32 || tensor->bytes < static_cast<int>(sizeof(float))) {
+    Serial.println("Input tensor debug: invalid input tensor state.");
+    return;
+  }
+
+  const size_t tensor_size = static_cast<size_t>(tensor->bytes / static_cast<int>(sizeof(float)));
+  const size_t values_to_print = preview_count < tensor_size ? preview_count : tensor_size;
+
+  Serial.printf("Input tensor preview (%u values):\n", static_cast<unsigned>(values_to_print));
+
+  float min_value = tensor->data.f[0];
+  float max_value = tensor->data.f[0];
+
+  for (size_t index = 0; index < values_to_print; ++index) {
+    const float value = tensor->data.f[index];
+    if (!std::isfinite(value)) {
+      Serial.printf("  [%03u] = NaN/Inf\n", static_cast<unsigned>(index));
+    } else {
+      Serial.printf("  [%03u] = %.6f\n", static_cast<unsigned>(index), value);
+    }
+
+    if (value < min_value) {
+      min_value = value;
+    }
+    if (value > max_value) {
+      max_value = value;
+    }
+  }
+
+  Serial.printf("Input tensor range: min=%.6f | max=%.6f\n", min_value, max_value);
+}
+
 bool print_tensor_debug(const TfLiteTensor* tensor) {
   if (tensor == nullptr || tensor->type != kTfLiteFloat32 || tensor->bytes < static_cast<int>(sizeof(float))) {
     Serial.println("Tensor debug: invalid output tensor state.");
