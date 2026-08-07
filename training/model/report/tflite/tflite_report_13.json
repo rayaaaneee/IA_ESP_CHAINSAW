@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-08-07T20:40:33.678661+00:00",
+  "feature_config": {
+    "sample_rate": 8000,
+    "window_seconds": 2.0,
+    "hop_seconds": 1.0,
+    "n_mfcc": 20,
+    "n_mels": 32,
+    "fft_length": 1024,
+    "hop_length": 256
+  },
+  "dataset_size": 5963,
+  "train_size": 3580,
+  "validation_size": 1197,
+  "test_size": 1186,
+  "threshold": 0.3,
+  "keras_model_path": "C:\\Users\\rayan\\Documents\\BOG\\IA_ESP_CHAINSAW\\training\\model\\model.h5",
+  "tflite_model_path": "C:\\Users\\rayan\\Documents\\BOG\\IA_ESP_CHAINSAW\\training\\model\\model.tflite",
+  "reference_training_report": "C:\\Users\\rayan\\Documents\\BOG\\IA_ESP_CHAINSAW\\training\\model\\report\\training_report_06.json",
+  "tflite_model_hash": "610e431fcf70dd2de316eccb3fc77180f6ae7dbf71dd93cf2471ec604fc73794",
+  "keras_validation_metrics": {
+    "loss": 0.057090114802122116,
+    "accuracy": 0.9832915663719177,
+    "precision": 0.977707028388977,
+    "recall": 0.9593750238418579,
+    "auc": 0.9941009879112244,
+    "true_positives": 307.0,
+    "true_negatives": 862.0,
+    "false_positives": 15.0,
+    "false_negatives": 13.0
+  },
+  "keras_test_metrics": {
+    "loss": 0.06290315836668015,
+    "accuracy": 0.9789207577705383,
+    "precision": 0.9611650705337524,
+    "recall": 0.9580644965171814,
+    "auc": 0.99517422914505,
+    "true_positives": 298.0,
+    "true_negatives": 856.0,
+    "false_positives": 20.0,
+    "false_negatives": 12.0
+  },
+  "tflite_validation_metrics": {
+    "loss": 0.057089466601610184,
+    "accuracy": 0.9766081871345029,
+    "precision": 0.953416149068323,
+    "recall": 0.959375,
+    "auc": 0.9941009879112244,
+    "true_positives": 307,
+    "true_negatives": 862,
+    "false_positives": 15,
+    "false_negatives": 13
+  },
+  "tflite_test_metrics": {
+    "loss": 0.06290291249752045,
+    "accuracy": 0.9730185497470489,
+    "precision": 0.9371069182389937,
+    "recall": 0.9612903225806452,
+    "auc": 0.99517422914505,
+    "true_positives": 298,
+    "true_negatives": 856,
+    "false_positives": 20,
+    "false_negatives": 12
+  },
+  "metric_deltas": {
+    "validation": {
+      "loss_delta": -6.48200511932373e-07,
+      "accuracy_delta": -0.006683379237414799,
+      "precision_delta": -0.024290879320654102,
+      "recall_delta": -2.384185793236071e-08,
+      "auc_delta": 0.0
+    },
+    "test": {
+      "loss_delta": -2.4586915969848633e-07,
+      "accuracy_delta": -0.005902208023489397,
+      "precision_delta": -0.024058152294758717,
+      "recall_delta": 0.003225826063463777,
+      "auc_delta": 0.0
+    }
+  },
+  "prediction_deltas": {
+    "validation": {
+      "mean_abs_probability_diff": 4.270154452257202e-09,
+      "max_abs_probability_diff": 2.682209014892578e-07,
+      "prediction_mismatch_count": 0
+    },
+    "test": {
+      "mean_abs_probability_diff": 5.818710846483555e-09,
+      "max_abs_probability_diff": 7.748603820800781e-07,
+      "prediction_mismatch_count": 0
+    }
+  }
+}

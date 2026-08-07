@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from collections import Counter
@@ -44,48 +45,40 @@ def latest_tflite_report(report_dir: Path) -> Path | None:
 	return reports[-1] if reports else None
 
 
-def tflite_report_exists(report_dir: Path, reference_training_report: str | None, threshold: float) -> bool:
-	for report_path in (report_dir / "tflite").glob("tflite_report_*.json"):
-		try:
-			payload = json.loads(report_path.read_text(encoding="utf-8"))
-		except Exception:
-			continue
-
-		if payload.get("reference_training_report") != reference_training_report:
-			continue
-
-		stored_threshold = payload.get("threshold")
-		if stored_threshold is None:
-			continue
-
-		try:
-			if float(stored_threshold) == float(threshold):
-				return True
-		except (TypeError, ValueError):
-			continue
-
-	return False
+def compute_tflite_hash(tflite_path: Path) -> str:
+	return hashlib.sha256(tflite_path.read_bytes()).hexdigest()
 
 
-def find_tflite_report(report_dir: Path, reference_training_report: str | None, threshold: float) -> Path | None:
+def _report_matches(payload: dict, reference_training_report: str | None, threshold: float, tflite_hash: str) -> bool:
+	if payload.get("reference_training_report") != reference_training_report:
+		return False
+
+	if payload.get("tflite_model_hash") != tflite_hash:
+		return False
+
+	stored_threshold = payload.get("threshold")
+	if stored_threshold is None:
+		return False
+
+	try:
+		return float(stored_threshold) == float(threshold)
+	except (TypeError, ValueError):
+		return False
+
+
+def tflite_report_exists(report_dir: Path, reference_training_report: str | None, threshold: float, tflite_hash: str) -> bool:
+	return find_tflite_report(report_dir, reference_training_report, threshold, tflite_hash) is not None
+
+
+def find_tflite_report(report_dir: Path, reference_training_report: str | None, threshold: float, tflite_hash: str) -> Path | None:
 	for report_path in sorted((report_dir / "tflite").glob("tflite_report_*.json")):
 		try:
 			payload = json.loads(report_path.read_text(encoding="utf-8"))
 		except Exception:
 			continue
 
-		if payload.get("reference_training_report") != reference_training_report:
-			continue
-
-		stored_threshold = payload.get("threshold")
-		if stored_threshold is None:
-			continue
-
-		try:
-			if float(stored_threshold) == float(threshold):
-				return report_path
-		except (TypeError, ValueError):
-			continue
+		if _report_matches(payload, reference_training_report, threshold, tflite_hash):
+			return report_path
 
 	return None
 
@@ -111,7 +104,8 @@ def main() -> int:
 
 	latest_report = latest_training_report(args.report_dir)
 	current_reference_training_report = str(latest_report) if latest_report is not None else None
-	existing_report = find_tflite_report(args.report_dir, current_reference_training_report, float(args.threshold))
+	current_tflite_hash = compute_tflite_hash(args.tflite_model)
+	existing_report = find_tflite_report(args.report_dir, current_reference_training_report, float(args.threshold), current_tflite_hash)
 	if existing_report is not None:
 		print(existing_report)
 		return 0
@@ -165,6 +159,7 @@ def main() -> int:
 		"keras_model_path": str(args.keras_model),
 		"tflite_model_path": str(args.tflite_model),
 		"reference_training_report": str(latest_report) if latest_report is not None else None,
+		"tflite_model_hash": current_tflite_hash,
 		"keras_validation_metrics": keras_validation_metrics,
 		"keras_test_metrics": keras_test_metrics,
 		"tflite_validation_metrics": serialize_metrics(tflite_validation_metrics),
@@ -180,18 +175,18 @@ def main() -> int:
 	}
 
 	current_threshold = float(report_payload["threshold"])
-	should_save_report = not tflite_report_exists(args.report_dir, current_reference_training_report, current_threshold)
+	should_save_report = not tflite_report_exists(args.report_dir, current_reference_training_report, current_threshold, current_tflite_hash)
 	report_path = args.report_dir / "tflite" / f"tflite_report_{next_index(args.report_dir):02d}.json"
 	if should_save_report:
 		(args.report_dir / "tflite").mkdir(parents=True, exist_ok=True)
 		report_path.write_text(json.dumps(report_payload, indent=2, ensure_ascii=False), encoding="utf-8")
 		print(f"TFLite validation report saved to {report_path}")
 	else :
-		existing_report = find_tflite_report(args.report_dir, current_reference_training_report, current_threshold)
+		existing_report = find_tflite_report(args.report_dir, current_reference_training_report, current_threshold, current_tflite_hash)
 		if existing_report is not None:
 			print(existing_report)
 		else:
-			print("Skipping report save: a TFLite report already exists for this reference_training_report and threshold.")
+			print("Skipping report save: a TFLite report already exists for this reference_training_report, threshold and TFLite model hash.")
 	print("Label distribution after split:")
 	print(" - train:", dict(Counter(y_train)))
 	print(" - validation:", dict(Counter(y_validation)))
