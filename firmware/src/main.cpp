@@ -1,14 +1,20 @@
 #include <Arduino.h>
 
+#include <cstring>
+
 #include <tensorflow/lite/micro/all_ops_resolver.h>
 #include <tensorflow/lite/micro/micro_error_reporter.h>
 #include <tensorflow/lite/micro/micro_interpreter.h>
 #include <tensorflow/lite/schema/schema_generated.h>
 
+#include "app/board_config.h"
 #include "app/config.h"
 #include "drivers/audio.h"
+#include "drivers/gpio.h"
 #include "model/inference.h"
+#include "services/communication.h"
 #include "services/mfcc.h"
+#include "services/watchdog.h"
 #include "utils/debug.h"
 
 bool extract_features_from_audio(const int16_t* audio_buffer, float* feature_vector, size_t feature_vector_size);
@@ -24,10 +30,16 @@ constexpr int kTensorArenaSize = 6 * 1024;
 alignas(16) uint8_t tensor_arena[kTensorArenaSize];
 
 constexpr size_t kAudioBufferSize = AUDIO_WINDOW_SAMPLES;
+constexpr size_t kHopSamples = static_cast<size_t>(AUDIO_CONFIG.sample_rate * AUDIO_CONFIG.hop_seconds);
 constexpr float kInferenceThreshold = DETECTION_THRESHOLD;
 
 int16_t audio_buffer[kAudioBufferSize];
 float feature_vector[FEATURE_VECTOR_SIZE];
+bool window_filled = false;
+
+// Debounce/hysteresis state (see kDetectionEnterThreshold/kDetectionExitThreshold/kDetectionConsecutiveFrames in app/board_config.h).
+int consecutive_frames_above_enter = 0;
+bool chainsaw_alert_active = false;
 
 // OLED ssd1306 display(0x3C, 21, 22); // I2C address and pins for SDA and SCL
 void setup() {
@@ -38,7 +50,6 @@ void setup() {
     Serial.println("Initializing the AI...");
 
     tflite_model = tflite::GetModel(g_model_data);
-    // debug::print_model_tensor_types(tflite_model);
 
     static tflite::AllOpsResolver resolver;
     static tflite::MicroErrorReporter micro_error_reporter;
@@ -60,21 +71,39 @@ void setup() {
 
     init_audio();
     init_feature_extractor();
+    init_status_led();
+    init_communication();
+    init_watchdog();
 
     Serial.println("AI model loaded and ready for inference.");
     Serial.printf("Arena used: %d bytes\n", interpreter->arena_used_bytes());
     Serial.printf("Feature vector size: %u\n", static_cast<unsigned>(FEATURE_VECTOR_SIZE));
     Serial.printf("Detection threshold: %.2f\n", kInferenceThreshold);
-    // debug::print_tensor_debug(input);
-    // debug::print_tensor_debug(output);
+#if ENABLE_DEBUG_LOGS
+    debug::print_model_tensor_types(tflite_model);
+    debug::print_tensor_debug(input);
+    debug::print_tensor_debug(output);
+#endif
 
 }
 
 void loop() {
 
-    if (!record_audio(audio_buffer, static_cast<int>(kAudioBufferSize))) {
-      Serial.println("Error: unable to read audio.");
-      return;
+    feed_watchdog();
+
+    // First pass fills the whole window; afterwards only the newest hop is captured and slid in, so inference runs every hop_seconds instead of window_seconds.
+    if (!window_filled) {
+      if (!record_audio(audio_buffer, static_cast<int>(kAudioBufferSize))) {
+        Serial.println("Error: unable to read audio.");
+        return;
+      }
+      window_filled = true;
+    } else {
+      memmove(audio_buffer, audio_buffer + kHopSamples, (kAudioBufferSize - kHopSamples) * sizeof(int16_t));
+      if (!record_audio(audio_buffer + (kAudioBufferSize - kHopSamples), static_cast<int>(kHopSamples))) {
+        Serial.println("Error: unable to read audio.");
+        return;
+      }
     }
 
     if (!extract_features_from_audio(audio_buffer, feature_vector, FEATURE_VECTOR_SIZE)) {
@@ -92,25 +121,44 @@ void loop() {
       input->data.f[index] = feature_vector[index];
     }
 
-    // debug::print_audio_debug(audio_buffer, kAudioBufferSize);
-    /* if (!debug::print_feature_debug(feature_vector, FEATURE_VECTOR_SIZE)) {
+#if ENABLE_DEBUG_LOGS
+    debug::print_audio_debug(audio_buffer, kAudioBufferSize);
+    if (!debug::print_feature_debug(feature_vector, FEATURE_VECTOR_SIZE)) {
       Serial.println("Error: invalid feature vector.");
       return;
-    } */
-    // debug::print_input_tensor_debug(input, 16);
+    }
+    debug::print_input_tensor_debug(input, 16);
+#endif
 
     if (interpreter->Invoke() != kTfLiteOk) {
       Serial.println("Error: inference failed!");
       return;
     }
 
-    /* if (!debug::print_tensor_debug(output)) {
+#if ENABLE_DEBUG_LOGS
+    if (!debug::print_tensor_debug(output)) {
       Serial.println("Error: invalid model output.");
       return;
-    } */
+    }
+#endif
 
     const float probability = output->data.f[0];
     const bool detected = is_chainsaw_detected(probability, kInferenceThreshold);
     Serial.printf("Chainsaw probability: %.6f | verdict: %s\n", probability, detected ? "CHAINSAW DETECTED" : "NO CHAINSAW");
+
+    // Debounce/hysteresis: require kDetectionConsecutiveFrames windows above kDetectionEnterThreshold before alerting,
+    // and drop back below kDetectionExitThreshold before clearing it, to avoid single-frame false positives and flicker.
+    consecutive_frames_above_enter = (probability >= kDetectionEnterThreshold) ? consecutive_frames_above_enter + 1 : 0;
+
+    if (!chainsaw_alert_active && consecutive_frames_above_enter >= kDetectionConsecutiveFrames) {
+      chainsaw_alert_active = true;
+      set_status_led(true);
+      send_alert(probability);
+      Serial.println("ALERT: chainsaw detection confirmed.");
+    } else if (chainsaw_alert_active && probability < kDetectionExitThreshold) {
+      chainsaw_alert_active = false;
+      set_status_led(false);
+      Serial.println("Chainsaw alert cleared.");
+    }
 
 }
