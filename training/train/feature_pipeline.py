@@ -164,7 +164,7 @@ def serialize_metrics(metrics: dict[str, float | int | np.generic | np.ndarray])
 
 
 def compare_metrics(reference: dict[str, float | int | None], candidate: dict[str, float | int | None]) -> dict[str, float | None]:
-    keys = ["loss", "accuracy", "precision", "recall", "auc"]
+    keys = ["loss", "accuracy", "precision", "recall", "auc", "f1_score"]
     comparison: dict[str, float | None] = {}
     for key in keys:
         ref_value = reference.get(key)
@@ -212,6 +212,7 @@ def compute_binary_metrics(y_true: np.ndarray, probabilities: np.ndarray, *, thr
     accuracy = float((tp + tn) / total) if total else None
     precision = float(tp / (tp + fp)) if (tp + fp) else 0.0
     recall = float(tp / (tp + fn)) if (tp + fn) else 0.0
+    f1_score = float(2 * tp / (2 * tp + fp + fn)) if (2 * tp + fp + fn) else 0.0
 
     auc: float | None
     if np.unique(y_true).size < 2:
@@ -234,6 +235,7 @@ def compute_binary_metrics(y_true: np.ndarray, probabilities: np.ndarray, *, thr
         "precision": precision,
         "recall": recall,
         "auc": auc,
+        "f1_score": f1_score,
         "true_positives": tp,
         "true_negatives": tn,
         "false_positives": fp,

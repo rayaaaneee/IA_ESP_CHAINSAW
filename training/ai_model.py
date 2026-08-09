@@ -111,9 +111,11 @@ class AIModel:
         tn = int(np.sum((predictions == 0) & (truth == 0)))
         fp = int(np.sum((predictions == 1) & (truth == 0)))
         fn = int(np.sum((predictions == 0) & (truth == 1)))
+        f1_score = float(2 * tp / (2 * tp + fp + fn)) if (2 * tp + fp + fn) else 0.0
 
         scores.update(
             {
+                "f1_score": f1_score,
                 "true_positives": float(tp),
                 "true_negatives": float(tn),
                 "false_positives": float(fp),
