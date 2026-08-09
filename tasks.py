@@ -147,7 +147,7 @@ def generate_firmware(c):
     with c.cd(TRAINING):
         c.run(f'"{PYTHON}" generate_firmware.py')
 
-@task(pre=[extract_features, train, convert, validate_tflite, generate_firmware], aliases=["fp", "pl", "pipeline"])
+@task(pre=[extract_features, train, convert, validate_tflite, generate_firmware, build], aliases=["fp", "pl", "pipeline"])
 def full_pipeline(_):
     # Run the full pipeline: extract features, train the model, and convert to TFLite.
     print("Full pipeline has been run: extract features, train model, convert to TFLite...")
