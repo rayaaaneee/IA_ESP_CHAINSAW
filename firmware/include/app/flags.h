@@ -13,4 +13,9 @@
 // while disabled, init_communication()/send_alert() are a no-op and never touch the radio hardware.
 #define ENABLE_LORA_COMMUNICATION 0
 
+// Set to 1 to only print the per-frame "Chainsaw probability" line while a chainsaw alert is active (same
+// kDetectionEnterThreshold/kDetectionExitThreshold/kDetectionConsecutiveFrames hysteresis as the alert itself, so
+// logging keeps going until the probability drops back below kDetectionExitThreshold). Keep at 0 to log every frame.
+#define ENABLE_LOG_ONLY_ON_DETECTION 1
+
 #endif // FLAGS_H

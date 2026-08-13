@@ -144,7 +144,6 @@ void loop() {
 
     const float probability = output->data.f[0];
     const bool detected = is_chainsaw_detected(probability, kInferenceThreshold);
-    Serial.printf("Chainsaw probability: %.6f | verdict: %s\n", probability, detected ? "CHAINSAW DETECTED" : "NO CHAINSAW");
 
     // Debounce/hysteresis: require kDetectionConsecutiveFrames windows above kDetectionEnterThreshold before alerting,
     // and drop back below kDetectionExitThreshold before clearing it, to avoid single-frame false positives and flicker.
@@ -160,5 +159,13 @@ void loop() {
       set_status_led(false);
       Serial.println("Chainsaw alert cleared.");
     }
+
+#if ENABLE_LOG_ONLY_ON_DETECTION
+    if (chainsaw_alert_active) {
+#endif
+      Serial.printf("Chainsaw probability: %.2f | verdict: %s\n", probability, detected ? "CHAINSAW DETECTED" : "NO CHAINSAW");
+#if ENABLE_LOG_ONLY_ON_DETECTION
+    }
+#endif
 
 }
