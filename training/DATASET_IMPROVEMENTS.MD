@@ -35,7 +35,7 @@ Rather than only sourcing new raw recordings, augmenting existing clips is a fas
 - Time-stretch / pitch-shift chainsaw clips slightly to simulate different engine models and recording distances.
 - Apply a low-pass filter to a copy of each positive clip to approximate far-field attenuation.
 
-## Suggested priority order
+## Priority order
 
 1. Microphone self-noise/silence (directly tied to a confirmed firmware bug pattern).
 2. Wind noise (most likely outdoor false-positive source).
